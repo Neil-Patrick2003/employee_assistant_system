@@ -14,6 +14,18 @@ return new class extends Migration
         Schema::create('user_job_preferences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger(column: 'user_id');
+            $table->decimal('min_salary', 10, 2);  // 10 total digits, 2 after decimal point
+            $table->string('work_experience');
+            $table->string('category');
+            $table->string('work_policy');
+            $table->string('scope');
+            $table->string('location');
+
+            $table->foreign(columns: 'user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
 
             $table->timestamps();
         });
