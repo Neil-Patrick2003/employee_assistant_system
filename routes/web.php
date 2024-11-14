@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Employer\CompanyController;
+use App\Http\Controllers\Employer\JobListingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +19,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/employer/dashboard', function () {
+    return view('employer/index');
+})->middleware(['auth', 'verified'])->name('employer');
+//employer job
+
+
+Route::get('/employer/jobs', [JobListingController::class, 'index']);
+Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
+
+Route::get('/employer/profile', [CompanyController::class, 'index']);
+
+
+require __DIR__ . '/auth.php';
