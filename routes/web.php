@@ -28,7 +28,13 @@ Route::get('/employer/dashboard', function () {
 Route::get('/employer/jobs', [JobListingController::class, 'index']);
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 
+Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
+
+
+
+//company profile
 Route::get('/employer/profile', [CompanyController::class, 'index']);
+Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 
 
 require __DIR__ . '/auth.php';

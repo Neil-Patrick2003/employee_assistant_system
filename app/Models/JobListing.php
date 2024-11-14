@@ -19,4 +19,8 @@ class JobListing extends Model
         'maximum_age',
         'category'
     ];
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
 }

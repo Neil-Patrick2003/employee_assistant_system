@@ -1,7 +1,8 @@
 <x-employer-layout>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <form>
+        <form action="/employer/jobs/create" method="POST">
+            @csrf
             <div class="space-y-12">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
                     <div>
@@ -44,6 +45,17 @@
                         </div>
 
                         <div class="sm:col-span-4">
+                            <label for="location" class="block text-sm/6 font-medium text-gray-900">Location</label>
+                            <div class="mt-2">
+                                <div
+                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                    <input type="text" name="location" id="location" placeholder="00.00"
+                                        class="block pl-2 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
                             <label for="work_policy" class="block text-sm/6 font-medium text-gray-900">Work
                                 Policy</label>
                             <div class="mt-2">
@@ -52,6 +64,18 @@
                                     <option>Onsite</option>
                                     <option>Work from Home</option>
                                     <option>Hybrid</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-4">
+                            <label for="category" class="block text-sm/6 font-medium text-gray-900">
+                                category</label>
+                            <div class="mt-2">
+                                <select id="category" name="category"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                    <option>Category</option>
+                                    <option>category 1</option>
+                                    <option>category 2</option>
                                 </select>
                             </div>
                         </div>
@@ -82,11 +106,22 @@
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">Maximum Age</label>
+                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">Maximum
+                                Age</label>
                             <div class="mt-2">
-                                <input type="text" name="work_experience" id="wprk_experience" autocomplete="family-name"
+                                <input type="text" name="work_experience" id="wprk_experience"
+                                    autocomplete="family-name"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
                             </div>
+                        </div>
+                        <div class="col-span-full">
+                            <label for="scope"
+                                class="block text-sm/6 font-medium text-gray-900">Scope</label>
+                            <div class="mt-2">
+                                <textarea id="scope" name="scope" rows="3"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                            </div>
+                            <p class="mt-3 text-sm/6 text-gray-600">Write a scope of the Jobs.</p>
                         </div>
                     </div>
                 </div>

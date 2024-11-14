@@ -14,4 +14,8 @@ class JobListingController extends Controller
     public function create(){
         return view('employer/job_listing/create');
     }
+
+    public function store(){
+        dd(request()->toArray());
+    }
 }
