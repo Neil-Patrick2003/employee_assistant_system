@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobEducation extends Model
 {
+    protected $table = 'job_educations';
     protected $fillable = [
         'job_listing_id',
         'level',
-        'deescription'
+        'description'
     ];
+
+    public function job(){
+        return $this->belongsTo(JobListing::class);
+    }
 }

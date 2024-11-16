@@ -178,7 +178,7 @@
                         <li>
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li>
-                                    <x-employer-nav-link href="{{ url('/member/myprogram') }}" :active="request()->is('employer/dashboard')">
+                                    <x-employer-nav-link href="{{ url('/employer/dashboard') }}" :active="request()->is('employer/dashboard')">
                                         <x-slot:icon>
                                             <svg class="size-6 shrink-0 text-indigo-600" fill="none"
                                                 viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -204,7 +204,7 @@
                                     </x-employer-nav-link>
                                 </li>
                                 <li>
-                                    <x-employer-nav-link href="{{ url('/member/myprogram') }}" :active="request()->is('employer/applicants')">
+                                    <x-employer-nav-link href="{{ url('/employer/applicants') }}" :active="request()->is('employer/applicants')">
                                         <x-slot:icon>
                                             <svg class="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5"

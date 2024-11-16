@@ -23,4 +23,12 @@ class JobListing extends Model
     public function company(){
         return $this->belongsTo(Company::class);
     }
+
+    public function job_skills(){
+        return $this->hasMany(JobSkill::class);
+    }
+
+    public function job_education(){
+        return $this->hasOne(JobEducation::class);
+    }
 }

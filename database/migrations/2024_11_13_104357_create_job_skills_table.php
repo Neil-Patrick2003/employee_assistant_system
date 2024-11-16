@@ -21,6 +21,8 @@ return new class extends Migration
                 ->on('job_listings')
                 ->cascadeOnDelete();
 
+            $table->timestamps();
+
         });
     }
 

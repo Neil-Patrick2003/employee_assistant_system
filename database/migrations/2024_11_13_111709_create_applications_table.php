@@ -34,6 +34,8 @@ return new class extends Migration
                 ->on('resumes')
                 ->cascadeOnDelete();
 
+            $table->timestamps();
+
         });
     }
 

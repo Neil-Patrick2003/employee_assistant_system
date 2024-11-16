@@ -28,21 +28,24 @@ class JobListingController extends Controller
             ->where('id', '=', Enter::id())
             ->first();
 
+
+
+
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
+            'description' => 'required',
             'salary' => 'required|numeric|min:1',
             'location' => 'required',
-            'work_policy' => 'required|string|in:Hybrid,Remote,On-Site', // assuming work_policy can be these values
+            'work_policy' => 'required|string|in:Hybrid,Remote,Onsite',
             'category' => 'required|string|max:255',
             'min_age' => 'required|integer|min:18|max:60',
-            'max_age' => 'required|integer|min:18|max:60|gte:min_age', // Ensure max_age is greater than or equal to min_age
+            'max_age' => 'required|integer|min:18|max:60|gte:min_age',
             'work_experience' => 'required|integer|min:0',
-            'scope' => 'required|string|max:500',
-            'level' => 'required',
-            'education_description' => 'required'
-
+            'scope' => 'required',
+            'level' => 'required'
         ]);
+
+
 
         $job = JobListing::create([
             'company_id' => $user->company->id,
@@ -58,20 +61,27 @@ class JobListingController extends Controller
             'category' => $request->category,
         ]);
 
+
+
         foreach ($request->job_skills as $job_skill) {
-            JobSkill::create([
-                'job_id' => $job->id,
+            $skill = JobSkill::create([
+                'job_listing_id' => $job->id,
                 'name' => $job_skill
 
             ]);
+
+            dump($skill);
         }
+
+        
 
         JobEducation::create([
             'level' => $request->level,
             'description' => $request->education_description,
-            'job_id' => $job->id
+            'job_listing_id' => $job->id
         ]);
 
-        return redirect('/employer/jobs')->with('sucess', 'Posted Sucessfully');
+        return redirect('/employer/jobs')->with('success', 'Posted Sucessfully');
     }
 }
+ 

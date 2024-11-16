@@ -19,7 +19,7 @@ class CompanyController extends Controller
         ->where('user_id', '=', Auth::id())
         ->first();
 
-        
+
         return view('employer/company/index', [
             'company' => $company
         ]);
@@ -38,19 +38,17 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request
+
+        //validate
         $request->validate([
             'file_upload' => 'required|file|mimes:jpg,jpeg,png,gif|max:10240', // Validate file type and size (10MB max)
         ]);
 
         // Check if a file was uploaded
         if ($request->hasFile('file_upload')) {
-            // Get the uploaded file
             $photo = $request->file('file_upload');
-
-            // Generate a unique file name and store it in the 'public' disk
             $image_name = time() . '_' . $photo->getClientOriginalName();
-            $path = $photo->storeAs('public/images/logo', $image_name);
+            $path = $photo->storeAs('images/logo', $image_name, 'public');
         }
 
         $companies = Company::create([

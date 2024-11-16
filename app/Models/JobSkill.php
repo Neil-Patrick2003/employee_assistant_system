@@ -10,4 +10,8 @@ class JobSkill extends Model
         'job_listing_id',
         'name',
     ];
+
+    public function job(){
+        return $this->belongsTo(JobListing::class);
+    }
 }
