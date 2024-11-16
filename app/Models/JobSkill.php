@@ -14,4 +14,6 @@ class JobSkill extends Model
     public function job(){
         return $this->belongsTo(JobListing::class);
     }
+
+    
 }

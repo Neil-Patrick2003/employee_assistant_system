@@ -14,6 +14,7 @@ class JobListingController extends Controller
 {
     public function index()
     {
+        
         return view('employer/job_listing/index');
     }
 

@@ -228,7 +228,7 @@
                                     <option>Not applicable</option>
                                 </select>
                             </div>
-                            @error('work_policy')
+                            @error('level')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
