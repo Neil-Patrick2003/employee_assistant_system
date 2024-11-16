@@ -254,7 +254,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/employer/"
+                                <a href="/employer/configurations"
                                     class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                                     <span
                                         class="flex size-6 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-[0.625rem] font-medium text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600">W</span>

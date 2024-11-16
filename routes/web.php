@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Employer\CompanyController;
+use App\Http\Controllers\Employer\JobSkillController;
 use App\Http\Controllers\Employer\JobListingController;
+use App\Http\Controllers\Employer\ConfigurationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,5 +42,8 @@ Route::get('/employer/profile', [CompanyController::class, 'index']);
 Route::get('/employer/profile/edit', [CompanyController::class, 'create']);
 Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 
+//config
+Route::get('/employer/configurations', [ConfigurationController::class, 'index']);
+Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'store']);
 
 require __DIR__ . '/auth.php';
