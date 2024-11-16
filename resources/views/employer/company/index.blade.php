@@ -12,8 +12,8 @@
 
             <!-- Company Name and Edit Button -->
             <div>
-                <h3 class="text-base/7 font-semibold text-gray-900">Company Name</h3>
-                <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">CEO</p>
+                <h3 class="text-base/7 font-semibold text-gray-900">{{$company->name}}</h3>
+                <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">{{$company->user->name}}</p>
             </div>
 
             <!-- Edit Button for Logo (Optional) -->
@@ -26,7 +26,7 @@
             <dl class="divide-y divide-gray-100">
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt class="text-sm font-medium text-gray-900">Company Details</dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$company->details}}</dd>
                 </div>
             </dl>
         </div>
