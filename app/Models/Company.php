@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\JobListing;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
@@ -14,10 +15,10 @@ class Company extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function jobs(){
-        return $this->hasMany(Company::class);
+        return $this->hasMany(JobListing::class);
     }
 }
