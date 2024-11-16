@@ -17,9 +17,11 @@ class JobListingController extends Controller
     {
         $company = Company::with('jobs')
         ->where('user_id', '=', Auth::id())
-        ->get();
+        ->first();
 
-        return view('employer/job_listing/index');
+        return view('employer/job_listing/index', [
+            'company' => $company
+        ]);
     }
 
     public function create()

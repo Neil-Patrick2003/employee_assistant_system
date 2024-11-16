@@ -25,14 +25,27 @@
         </div>
     @endif
     <div class="mt-2 overflow-hidden rounded-lg bg-white shadow">
-        <div class="container mx-auto p-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="bg-blue-500 p-6 text-white rounded">Item 1</div>
-                <div class="bg-green-500 p-6 text-white rounded">Item 2</div>
-                <div class="bg-red-500 p-6 text-white rounded">Item 3</div>
-                <div class="bg-yellow-500 p-6 text-white rounded">Item 4</div>
+        @foreach ($company->jobs as $job)
+            <div class="overflow-hidden rounded-lg bg-white shadow">
+                <div class="p-4 grid grid-cols-4 gap-4">
+                    <div class="col-span-3 ...">
+                        <div class="flex justify-start  gap-2">
+                            <div><img class="inline-block size-16 rounded-md " src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            </div>
+                            <div class="S">
+                                <h3>{{$job->title}}</h3>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="...">2</div>
+                    
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
+
+
+
 
 </x-employer-layout>
