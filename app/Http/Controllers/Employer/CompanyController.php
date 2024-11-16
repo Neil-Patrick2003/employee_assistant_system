@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Employer;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $company = Company::where('user_id', '=', Auth::id())
+        ->get();
         return view('employer/company/index');
     }
 
@@ -22,7 +25,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('employer.company.edit');
     }
 
     /**
@@ -69,7 +72,7 @@ class CompanyController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**

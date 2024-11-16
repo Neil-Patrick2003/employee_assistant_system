@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -16,6 +17,8 @@ class JobListingController extends Controller
     }
 
     public function store(){
-        dd(request()->toArray());
+        $user = User::with('company')->get();
+
+        dd($user);
     }
 }

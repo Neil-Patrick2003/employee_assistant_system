@@ -21,7 +21,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/employer/dashboard', function () {
     return view('employer/index');
-})->middleware(['auth', 'verified'])->name('employer');
+})->middleware(['auth', 'verified'])->name('EmployerDashboard');
+
+
+Route::get('/company/registration', [CompanyController::class, 'create'])->middleware(['auth', 'verified'])->name('CompanyRegistration');
 //employer job
 
 
@@ -34,6 +37,7 @@ Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
 
 //company profile
 Route::get('/employer/profile', [CompanyController::class, 'index']);
+Route::get('/employer/profile/edit', [CompanyController::class, 'create']);
 Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 
 

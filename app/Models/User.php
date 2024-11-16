@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
 
     public function company(){
-        return $this->has(Company::class);
+        return $this->hasOne(Company::class);
     }
 
     public function job_preference(){

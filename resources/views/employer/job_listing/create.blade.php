@@ -106,8 +106,8 @@
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">Maximum
-                                Age</label>
+                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">
+                                Work Experience (in years)</label>
                             <div class="mt-2">
                                 <input type="text" name="work_experience" id="wprk_experience"
                                     autocomplete="family-name"
