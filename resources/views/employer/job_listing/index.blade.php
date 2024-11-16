@@ -26,13 +26,11 @@
     @endif
     <div class="mt-2 overflow-hidden rounded-lg bg-white shadow">
         <div class="container mx-auto p-4">
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <div class="bg-blue-500 p-6 text-white rounded">Item 1</div>
                 <div class="bg-green-500 p-6 text-white rounded">Item 2</div>
                 <div class="bg-red-500 p-6 text-white rounded">Item 3</div>
                 <div class="bg-yellow-500 p-6 text-white rounded">Item 4</div>
-                <div class="bg-purple-500 p-6 text-white rounded">Item 5</div>
-                <div class="bg-pink-500 p-6 text-white rounded">Item 6</div>
             </div>
         </div>
     </div>

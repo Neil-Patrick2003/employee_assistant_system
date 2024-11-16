@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\Models\Company;
 use App\Models\JobEducation;
 use App\Models\JobListing;
 use App\Models\JobSkill;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth as Enter;
+use Illuminate\Support\Facades\Auth;
 
 class JobListingController extends Controller
 {
     public function index()
     {
-        
+        $company = Company::with('jobs')
+        ->where('user_id', '=', Auth::id())
+        ->get();
+
         return view('employer/job_listing/index');
     }
 
@@ -26,11 +30,8 @@ class JobListingController extends Controller
     public function store(Request $request)
     {
         $user = User::with('company')
-            ->where('id', '=', Enter::id())
+            ->where('id', '=', Auth::id())
             ->first();
-
-
-
 
         $request->validate([
             'title' => 'required|string|max:255',
@@ -43,10 +44,8 @@ class JobListingController extends Controller
             'max_age' => 'required|integer|min:18|max:60|gte:min_age',
             'work_experience' => 'required|integer|min:0',
             'scope' => 'required',
-            'level' => 'required'
+            'level' => 'required',
         ]);
-
-
 
         $job = JobListing::create([
             'company_id' => $user->company->id,
@@ -62,27 +61,21 @@ class JobListingController extends Controller
             'category' => $request->category,
         ]);
 
-
-
         foreach ($request->job_skills as $job_skill) {
             $skill = JobSkill::create([
                 'job_listing_id' => $job->id,
-                'name' => $job_skill
+                'name' => $job_skill,
 
             ]);
 
-            dump($skill);
         }
-
-        
 
         JobEducation::create([
             'level' => $request->level,
             'description' => $request->education_description,
-            'job_listing_id' => $job->id
+            'job_listing_id' => $job->id,
         ]);
 
         return redirect('/employer/jobs')->with('success', 'Posted Sucessfully');
     }
 }
- 
