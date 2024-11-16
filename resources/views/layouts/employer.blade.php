@@ -13,12 +13,12 @@
 <body class="h-full">
 
     <div>
-        <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+        <div id="sidebar" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
             <div class="fixed inset-0 bg-gray-900/80" aria-hidden="true"></div>
             <div class="fixed inset-0 flex">
                 <div class="relative mr-16 flex w-full max-w-xs flex-1">
                     <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
-                        <button type="button" class="-m-2.5 p-2.5">
+                        <button type="button" id="closeSidebar" class="-m-2.5 p-2.5">
                             <span class="sr-only">Close sidebar</span>
                             <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -46,7 +46,7 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                                                 </svg>
-                                                Dashboardsss
+                                                Dashboards
                                             </a>
                                         </li>
                                         <li>
@@ -163,6 +163,35 @@
                 </div>
             </div>
         </div>
+
+        <button id="openMenu" class="fixed top-0 left-0 z-50 p-4 bg-indigo-600 text-white rounded-md lg:hidden">
+            <span class="sr-only">Open Menu</span>
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Button Script -->
+    <script>
+        const openMenuButton = document.getElementById('openMenu');
+        const closeSidebarButton = document.getElementById('closeSidebar');
+        const sidebar = document.getElementById('sidebar');
+    
+        openMenuButton.addEventListener('click', () => {
+            sidebar.classList.remove('hidden');
+            openMenuButton.classList.add('hidden');  
+            closeSidebarButton.classList.remove('hidden'); 
+        });
+    
+        closeSidebarButton.addEventListener('click', () => {
+            sidebar.classList.add('hidden');
+            openMenuButton.classList.remove('hidden'); 
+            closeSidebarButton.classList.add('hidden'); 
+        });
+    </script>
+
+</script>
 
         <!-- Static sidebar for desktop -->
         <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
