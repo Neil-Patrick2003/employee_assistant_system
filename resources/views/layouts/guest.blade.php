@@ -39,7 +39,7 @@
                         Login to your Account
                     </h4>
                     <p class="text-sm">Embark on an unparalleled job-seeking adventure with PESO</p>
-                </div>
+                </div>             
                 <div class="w-full max-w-md mx-auto">
                     {{ $slot }}
                 </div>
@@ -48,7 +48,7 @@
 
             <!-- Right column -->
             <div class="w-full md:w-6/12 h-full flex items-center justify-center bg-[#0F172A] rounded-b-lg md:rounded-e-lg md:rounded-bl-none py-6">
-                <img src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
+                <img id="loginImage" src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
             </div>
         </div>
     </section>
