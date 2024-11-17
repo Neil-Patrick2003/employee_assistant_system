@@ -30,7 +30,6 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
@@ -44,13 +43,22 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'age' => $request->age,
             'role' => $request->role,
-
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
+
+        $role = $user->role;
+
+        if ($role === 'admin') {
+            return redirect()->intended(route('admin.dashboard'));
+        } elseif ($role === 'Employer') {
+            return redirect()->intended(route('company_registration'));
+        } elseif ($role === 'Admin') {
+            return redirect()->intended(route('dashboard'));
+        }
 
         return redirect(route('dashboard', absolute: false));
     }

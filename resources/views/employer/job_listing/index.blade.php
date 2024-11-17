@@ -1,5 +1,27 @@
 <x-employer-layout>
-    Post Jobs
+
+
+    My Job posting
+    <br>
+
+    <p>my company id is: {{ $company->id }}</p>
+    <p>my company name: {{ $company->name }}</p>
+
+    my job post
+    <br>
+    <br>
+
+    @foreach ($company->jobs as $job)
+        <div class="w-40 h-40 bg-red-600 mb-2 p-4">
+            <p>title is {{ $job->title }}</p>
+            <p>description is {{ $job->description }}</p>
+            <br>
+        </div>
+    @endforeach
+
+
+
+    {{-- Post Jobs
     <a href="/employer/jobs/create"
         class="inline-flex items-center justify-center rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
@@ -39,11 +61,11 @@
                         </div>
                     </div>
                     <div class="...">2</div>
-                    
+
                 </div>
             </div>
         @endforeach
-    </div>
+    </div> --}}
 
 
 
