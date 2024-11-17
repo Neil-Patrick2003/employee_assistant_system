@@ -24,6 +24,7 @@
             </span>
         </div>
     @endif
+<<<<<<< HEAD
 
     <div>
         <div class="container mx-auto p-4 space-y-6">
@@ -59,10 +60,30 @@
                     </div>
                 </div>
                 <p class="text-sm text-gray-500 mt-2">J.P Laurel St, Nasugbu, Batangas</p>
+=======
+    <div class="mt-2 overflow-hidden rounded-lg bg-white shadow">
+        @foreach ($company->jobs as $job)
+            <div class="overflow-hidden rounded-lg bg-white shadow">
+                <div class="p-4 grid grid-cols-4 gap-4">
+                    <div class="col-span-3 ...">
+                        <div class="flex justify-start  gap-2">
+                            <div><img class="inline-block size-16 rounded-md " src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                            </div>
+                            <div class="S">
+                                <h3>{{$job->title}}</h3>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="...">2</div>
+                    
+                </div>
+>>>>>>> origin/main
             </div>
-        </div>
+        @endforeach
     </div>
 
+<<<<<<< HEAD
     <!-- Combo Box-->
     <div class="mt-4 flex justify-between items-center">
         <div class="flex items-center space-x-3">
@@ -75,4 +96,9 @@
             </select>
         </div>
     </div>
+=======
+
+
+
+>>>>>>> origin/main
 </x-employer-layout>
