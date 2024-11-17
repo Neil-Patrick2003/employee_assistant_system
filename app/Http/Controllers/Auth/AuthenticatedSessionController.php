@@ -32,14 +32,14 @@ class AuthenticatedSessionController extends Controller
 
         if ($role === 'admin') {
             return redirect()->intended(route('admin.dashboard'));
-        } elseif ($role === 'employer') {
+        } elseif ($role === 'Employer') {
             if($request->user)
             return redirect()->intended(route('EmployerDashboard'));
-        } elseif ($role === 'trainer') {
-            return redirect()->intended(route('trainer.dashboard'));
+        } elseif ($role === 'Applicant') {
+            return redirect()->intended(route('dashboard'));
         }
 
-        return redirect()->intended(route('home', absolute: false));
+        return redirect()->intended(route('/', absolute: false));
     }
 
     /**

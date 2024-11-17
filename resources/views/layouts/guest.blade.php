@@ -32,7 +32,7 @@
                     {{ $slot }}
                 </div>
 
-                <div class="md:h-full bg-neutral-900 rounded-xl lg:p-16 p-12">
+                <div class="flex items-center justify-center md:h-full bg-neutral-900 rounded-xl lg:p-16 p-12">
                     <img src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
                 </div>
             </div>

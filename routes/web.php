@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\JobSkillController;
 use App\Http\Controllers\Employer\JobListingController;
@@ -45,5 +46,13 @@ Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 //config
 Route::get('/employer/configurations', [ConfigurationController::class, 'index']);
 Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'store']);
+
+
+
+Route::get('/jobs', [JobController::class, 'index'])->name('explore');
+
+
+
+
 
 require __DIR__ . '/auth.php';
