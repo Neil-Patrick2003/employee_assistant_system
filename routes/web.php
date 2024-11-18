@@ -31,6 +31,14 @@ Route::get('/employer/dashboard', function () {
     return view('employer/index');
 })->middleware(['auth', 'verified'])->name('EmployerDashboard');
 
+//applicant
+//explore
+//job-details
+Route::get('/jobs/{job}', [JobController::class, 'show']);
+
+
+
+
 //employer job
 
 Route::get('/employer/jobs', [JobListingController::class, 'index']);

@@ -58,7 +58,7 @@ class CompanyController extends Controller
             'details' => $request->details
         ]);
 
-        return redirect()->back();
+        return view('employer.index');
 
     }
 

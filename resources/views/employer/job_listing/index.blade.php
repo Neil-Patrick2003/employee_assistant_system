@@ -7,12 +7,14 @@
     <p>my company id is: {{ $company->id }}</p>
     <p>my company name: {{ $company->name }}</p>
 
+
     my job post
     <br>
     <br>
 
     @foreach ($company->jobs as $job)
         <div class="w-40 h-40 bg-red-600 mb-2 p-4">
+            <img src="{{ asset('storage/' . $company->logo_url) }}" alt="Java Logo">
             <p>title is {{ $job->title }}</p>
             <p>description is {{ $job->description }}</p>
             <br>
