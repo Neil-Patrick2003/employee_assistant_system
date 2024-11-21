@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
+    <title>EAS | Homepage</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -27,9 +27,9 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Home</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">About</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Contact</a>
+                    <a href="{{ url('/') }}" class="text-sm/6 font-semibold text-gray-900">Home</a>
+                    <a href="{{ url('/about') }}" class="text-sm/6 font-semibold text-gray-900">About</a>
+                    <a href="{{ url('/contact') }}" class="text-sm/6 font-semibold text-gray-900">Contact</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     @if (Route::has('login'))
