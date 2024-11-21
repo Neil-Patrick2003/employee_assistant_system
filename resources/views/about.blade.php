@@ -56,7 +56,7 @@
                     <h2 class="text-base font-semibold leading-7 text-indigo-600">About</h2>
                     <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Employment Asisstance System</p>
                     <p class="mt-6 text-lg leading-8 text-gray-600">
-                        Long quote test here.
+                        Public Employement Service Office(PESO) is a non-fee charging multi-employement service facility or entity established in local goverment units(LGUs) in coordination with the Department of Labor and Employement (DOLE) pursuant to R.A. No. 8759 or the PESO Act of 199 as amended by R.A. No. 10691.
                     </p>
                 </div>
 
@@ -70,7 +70,8 @@
                                 Our Mission
                             </dt>
                             <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                <p class="flex-auto">Long quote test here.</p>
+                                <p class="flex-auto">Ensure prompt and efficient delivery of employment facilitation services</p>
+                                <p class="flex-auto">Provide timely information on labor market and DOLE programs</p>
                             </dd>
                         </div>
 
@@ -79,10 +80,12 @@
                                 <svg class="size-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
                                 </svg>
-                                Who We Are
+                                Core services
                             </dt>
                             <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                <p class="flex-auto">Long quote test here.</p>
+                                <p class="flex-auto">Provision of Referral and Placement Service</p>
+                                <p class="flex-auto">Provision of Labor Market Information</p>
+                                <p class="flex-auto">Provision of Career Guidance and Employment Coaching</p>
                             </dd>
                         </div>
 

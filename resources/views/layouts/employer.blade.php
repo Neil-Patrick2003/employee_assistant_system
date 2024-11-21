@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Document</title>
+    <title>EAS | Employer Dashboard</title>
 </head>
 
 <body class="h-full">
@@ -177,17 +177,17 @@
         const openMenuButton = document.getElementById('openMenu');
         const closeSidebarButton = document.getElementById('closeSidebar');
         const sidebar = document.getElementById('sidebar');
-    
+
         openMenuButton.addEventListener('click', () => {
             sidebar.classList.remove('hidden');
-            openMenuButton.classList.add('hidden');  
-            closeSidebarButton.classList.remove('hidden'); 
+            openMenuButton.classList.add('hidden');
+            closeSidebarButton.classList.remove('hidden');
         });
-    
+
         closeSidebarButton.addEventListener('click', () => {
             sidebar.classList.add('hidden');
-            openMenuButton.classList.remove('hidden'); 
-            closeSidebarButton.classList.add('hidden'); 
+            openMenuButton.classList.remove('hidden');
+            closeSidebarButton.classList.add('hidden');
         });
     </script>
 
@@ -358,11 +358,10 @@
                                 aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
                                 <img class="size-8 rounded-full bg-gray-50"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                    src=""
+                                     alt=""> {{-- User image here --}}
                                 <span class="hidden lg:flex lg:items-center">
-                                    <span class="ml-4 text-sm/6 font-semibold text-gray-900" aria-hidden="true">Tom
-                                        Cook</span>
+                                    <span class="ml-4 text-sm/6 font-semibold text-gray-900" aria-hidden="true">{{ Auth::user()->name }}</span>
                                     <svg class="ml-2 size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
                                         aria-hidden="true" data-slot="icon">
                                         <path fill-rule="evenodd"
