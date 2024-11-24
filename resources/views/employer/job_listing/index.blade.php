@@ -48,6 +48,43 @@
             </span>
         </div>
     @endif
+<<<<<<< HEAD
+
+    <div>
+        <div class="container mx-auto p-4 space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md border">
+                <div class="flex items-center justify-between space-x-3">
+                    <div class="flex items-center space-x-3">
+                        <img src="/path/to/logo1.png" alt="Cashier" class="w-12 h-12 object-cover rounded">
+                        <div>
+                            <h1 class="text-lg font-bold">Cashier</h1>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-gray-600">?/month</span>
+                        <a href="#" class="bg-indigo-600 text-white py-1 px-4 rounded-lg text-sm hover:bg-indigo-500 mt-2">View
+                            Details</a>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">J P Laurel St, Nasugbu, Batangas</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md border">
+                <div class="flex items-center justify-between space-x-3">
+                    <div class="flex items-center space-x-3">
+                        <img src="/path/to/logo2.png" alt="Sales and Marketing Coordinator"
+                            class="w-12 h-12 object-cover rounded">
+                        <div>
+                            <h1 class="text-lg font-bold">Sales and Marketing Coordinator</h1>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-gray-600">?/month</span>
+                        <a href="#" class="bg-indigo-600 text-white py-1 px-4 rounded-lg text-sm hover:bg-indigo-500 mt-2">View
+                            Details</a>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">J.P Laurel St, Nasugbu, Batangas</p>
+=======
     <div class="mt-2 overflow-hidden rounded-lg bg-white shadow">
         @foreach ($company->jobs as $job)
             <div class="overflow-hidden rounded-lg bg-white shadow">
@@ -65,11 +102,27 @@
                     <div class="...">2</div>
 
                 </div>
+>>>>>>> origin/main
             </div>
         @endforeach
     </div> --}}
 
+<<<<<<< HEAD
+    <!-- Combo Box-->
+    <div class="mt-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <span class="text-sm text-gray-600">Page 1 of 1</span>
+            <label for="itemsPerPage" class="text-sm text-gray-600">Items per page:</label>
+            <select id="itemsPerPage" class="border border-gray-300 rounded-lg text-sm px-3 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+    </div>
+=======
 
 
 
+>>>>>>> origin/main
 </x-employer-layout>
