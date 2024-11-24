@@ -15,9 +15,15 @@ class JobListingController extends Controller
 {
     public function index()
     {
+
+        //FETCH
         $company = Company::with('jobs')
-        ->where('user_id', '=', Auth::id())
+        ->where('user_id' , '=' , Auth::id())
         ->first();
+
+
+
+
 
         return view('employer/job_listing/index', [
             'company' => $company

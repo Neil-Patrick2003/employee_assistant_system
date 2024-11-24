@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Employer\CompanyController;
-use App\Http\Controllers\Employer\JobSkillController;
-use App\Http\Controllers\Employer\JobListingController;
 use App\Http\Controllers\Employer\ConfigurationController;
+use App\Http\Controllers\Employer\JobListingController;
+use App\Http\Controllers\Employer\JobSkillController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,6 +15,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/company/registration', function(){
+    return view('registration');
+})->name('company_registration');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,17 +31,20 @@ Route::get('/employer/dashboard', function () {
     return view('employer/index');
 })->middleware(['auth', 'verified'])->name('EmployerDashboard');
 
+//applicant
+//explore
+//job-details
+Route::get('/jobs/{job}', [JobController::class, 'show']);
 
-Route::get('/company/registration', [CompanyController::class, 'create'])->middleware(['auth', 'verified'])->name('CompanyRegistration');
+
+
+
 //employer job
-
 
 Route::get('/employer/jobs', [JobListingController::class, 'index']);
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 
 Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
-
-
 
 //company profile
 Route::get('/employer/profile', [CompanyController::class, 'index']);
@@ -47,12 +55,6 @@ Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 Route::get('/employer/configurations', [ConfigurationController::class, 'index']);
 Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'store']);
 
-
-
 Route::get('/jobs', [JobController::class, 'index'])->name('explore');
-
-
-
-
 
 require __DIR__ . '/auth.php';

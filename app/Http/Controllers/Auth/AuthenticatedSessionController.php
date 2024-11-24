@@ -30,16 +30,14 @@ class AuthenticatedSessionController extends Controller
 
         $role = $request->user()->role;
 
-        if ($role === 'admin') {
+        if ($role === 'Admin') {
             return redirect()->intended(route('admin.dashboard'));
         } elseif ($role === 'Employer') {
             if($request->user)
             return redirect()->intended(route('EmployerDashboard'));
-        } elseif ($role === 'Applicant') {
-            return redirect()->intended(route('dashboard'));
         }
 
-        return redirect()->intended(route('/', absolute: false));
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 
     /**
@@ -55,4 +53,6 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+
 }
