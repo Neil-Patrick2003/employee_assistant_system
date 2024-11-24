@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -111,5 +110,3 @@
     </div>
 </body>
 </html>
-=======
->>>>>>> parent of 58d8a31 (Landing Page & About Page & Contact Page)

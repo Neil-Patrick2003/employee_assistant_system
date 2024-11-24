@@ -177,17 +177,17 @@
         const openMenuButton = document.getElementById('openMenu');
         const closeSidebarButton = document.getElementById('closeSidebar');
         const sidebar = document.getElementById('sidebar');
-    
+
         openMenuButton.addEventListener('click', () => {
             sidebar.classList.remove('hidden');
-            openMenuButton.classList.add('hidden');  
-            closeSidebarButton.classList.remove('hidden'); 
+            openMenuButton.classList.add('hidden');
+            closeSidebarButton.classList.remove('hidden');
         });
-    
+
         closeSidebarButton.addEventListener('click', () => {
             sidebar.classList.add('hidden');
-            openMenuButton.classList.remove('hidden'); 
-            closeSidebarButton.classList.add('hidden'); 
+            openMenuButton.classList.remove('hidden');
+            closeSidebarButton.classList.add('hidden');
         });
     </script>
 
