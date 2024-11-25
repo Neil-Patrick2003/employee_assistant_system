@@ -1,36 +1,42 @@
 <x-employer-layout>
 
-
-    My Job posting
-    <br>
-
-    <p>my company id is: {{ $company->id }}</p>
-    <p>my company name: {{ $company->name }}</p>
-
-
-    my job post
-    <br>
-    <br>
-
-    @foreach ($company->jobs as $job)
-        <div class="w-40 h-40 bg-red-600 mb-2 p-4">
-            <img src="{{ asset('storage/' . $company->logo_url) }}" alt="Java Logo">
-            <p>title is {{ $job->title }}</p>
-            <p>description is {{ $job->description }}</p>
-            <br>
+    <div>
+        <div>
+            <nav class="sm:hidden" aria-label="Back">
+                <a href="#" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+                    <svg class="-ml-1 mr-1 size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd"
+                            d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Back
+                </a>
+            </nav>
+            <nav class="hidden sm:flex" aria-label="Breadcrumb">
+                <ol role="list" class="flex items-center space-x-4">
+                    <li>
+                        <div class="flex">
+                            <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-700">Jobs</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
         </div>
-    @endforeach
+        <div class="mt-2 md:flex md:items-center md:justify-between">
+            <div class="min-w-0 flex-1">
+                <h2 class="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">My Posted Jobs
+                </h2>
+            </div>
+            <div class="mt-4 flex shrink-0 md:ml-4 md:mt-0">
+                <a href="/employer/jobs/create">
+                    <button type="button"
+                        class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Post Job</button>
+                </a>
+            </div>
+        </div>
+    </div>
 
-
-
-    {{-- Post Jobs
-    <a href="/employer/jobs/create"
-        class="inline-flex items-center justify-center rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-            <path
-                d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-        </svg>
-    </a>
 
     @if (session('success'))
         <div id="success-alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
@@ -67,7 +73,7 @@
                 </div>
             </div>
         @endforeach
-    </div> --}}
+    </div>
 
 
 
