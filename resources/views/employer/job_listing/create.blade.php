@@ -1,13 +1,58 @@
 <x-employer-layout>
 
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div>
+        <div>
+            <nav class="sm:hidden" aria-label="Back">
+                <a href="#" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+                    <svg class="-ml-1 mr-1 size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd"
+                            d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Back
+                </a>
+            </nav>
+            <nav class="hidden sm:flex" aria-label="Breadcrumb">
+                <ol role="list" class="flex items-center space-x-4">
+                    <li>
+                        <div class="flex">
+                            <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-700">Jobs</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true" data-slot="icon">
+                                <path fill-rule="evenodd"
+                                    d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <a href="#"
+                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Create</a>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="mt-2 md:flex md:items-center md:justify-between">
+            <div class="min-w-0 flex-1">
+                <h2 class="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">My Posted Jobs
+                </h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mx-auto max-w-7xl sm:px-6 px-2 py-6  lg:px-8 mt-4 bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <form action="/employer/jobs/create" method="POST">
             @csrf
             <div class="space-y-12">
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
                     <div>
                         <h2 class="text-base/7 font-semibold text-gray-900">Job Details</h2>
-                        <p class="mt-1 text-sm/6 text-gray-600">This information will be displayed publicly so be careful
+                        <p class="mt-1 text-sm/6 text-gray-600">This information will be displayed publicly so be
+                            careful
                             what you share.</p>
                     </div>
 
@@ -120,7 +165,8 @@
 
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="sm:col-span-3">
-                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Minimum Age</label>
+                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Minimum
+                                Age</label>
                             <div class="mt-2">
                                 <input type="text" name="min_age" id="min-age"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
@@ -133,7 +179,8 @@
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="max_age" class="block text-sm/6 font-medium text-gray-900">Maximum Age</label>
+                            <label for="max_age" class="block text-sm/6 font-medium text-gray-900">Maximum
+                                Age</label>
                             <div class="mt-2">
                                 <input type="text" name="max_age" id="max_age" autocomplete="family-name"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
@@ -182,7 +229,7 @@
 
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="sm:col-span-3 relative">
-                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Add 
+                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Add
                                 Skill</label>
 
                             <button type="button" id="add-btn"
@@ -235,10 +282,12 @@
                             @enderror
                         </div>
                         <div class="col-span-full">
-                            <label for="education_description" class="block text-sm/6 font-medium text-gray-900">Education Description</label>
+                            <label for="education_description"
+                                class="block text-sm/6 font-medium text-gray-900">Education Description</label>
                             <div class="mt-2">
                                 <textarea id="education_description" name="education_description" rows="3"
-                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" placeholder="(optional)"></textarea>
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                                    placeholder="(optional)"></textarea>
                             </div>
                             <p class="mt-3 text-sm/6 text-gray-600">Write a here a short descriptions.</p>
                             @error('education_description')
@@ -279,7 +328,7 @@
 
             // Add event listener to the newly added "Remove" button
             newInputGroup.querySelector('.remove-btn').addEventListener('click', function() {
-                newInputGroup.remove(); 
+                newInputGroup.remove();
             });
         });
 
