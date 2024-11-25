@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Applicant\AppplicantController;
 use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\ConfigurationController;
@@ -32,8 +33,9 @@ Route::get('/employer/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('EmployerDashboard');
 
 //applicant
-//explore
-//job-details
+Route::get('/applicant/profile', [AppplicantController::class, 'index'])->name('applicant_profile'); 
+Route::get('/applicant/profile', [AppplicantController::class, 'index'])->name('applicant_profile');
+
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 
 

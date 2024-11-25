@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-[#F1F5F9]">
-    
+
 </body>
 
 </html>

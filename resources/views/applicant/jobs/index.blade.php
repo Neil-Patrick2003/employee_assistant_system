@@ -45,7 +45,7 @@
                                                         <h3 class="text-xl font-medium text-slate-600 md:text-2xl mt-2 flex-1">
                                                             {{$job->title}}
                                                         </h3>
-                                                    
+
                                                 </div>
                                                 <div class="flex items-center space-x-3">
                                                     <div class="text-xs text-gray-500 flex items-center space-x-1"><svg
