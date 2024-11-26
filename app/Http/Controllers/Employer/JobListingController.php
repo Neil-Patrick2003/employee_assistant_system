@@ -41,6 +41,7 @@ class JobListingController extends Controller
             ->where('id', '=', Auth::id())
             ->first();
 
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
@@ -53,7 +54,11 @@ class JobListingController extends Controller
             'work_experience' => 'required|integer|min:0',
             'scope' => 'required',
             'level' => 'required',
+            'education_description' => 'nullable'
         ]);
+
+
+       
 
         $job = JobListing::create([
             'company_id' => $user->company->id,
