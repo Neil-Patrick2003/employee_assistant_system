@@ -10,4 +10,8 @@ class AppplicantController extends Controller
     public function index(){
         return view('applicant.profile.index');
     }
+
+    public function store(){
+        dd(request()->toArray());
+    }
 }

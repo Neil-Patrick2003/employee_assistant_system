@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Applicant\AppplicantController;
 use App\Http\Controllers\Applicant\JobController;
+use App\Http\Controllers\Applicant\JobPreferencesController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\ConfigurationController;
 use App\Http\Controllers\Employer\JobListingController;
@@ -34,7 +35,7 @@ Route::get('/employer/dashboard', function () {
 
 //applicant
 Route::get('/applicant/profile', [AppplicantController::class, 'index'])->name('applicant_profile'); 
-Route::get('/applicant/profile', [AppplicantController::class, 'index'])->name('applicant_profile');
+Route::post('/applicant/profile/edit', [JobPreferencesController::class, 'store']);
 
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 
