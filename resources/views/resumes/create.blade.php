@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="w-full max-w-7xl mx-auto space-y-5 mt-5">
+    <div class="w-full max-w-7xl mx-auto space-y-5 mt-8 pb-8">
         <div class="bg-white px-4 py-4 rounded-2xl">
             <h2 class="text-xl font-medium text-slate-800">Create new Resume</h2>
         </div>
@@ -27,8 +27,64 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <h3 class="text-xl font-bold tracking-wide border-b">Education</h3>
+                    <div x-data="{ modalOpen: false, mode: 'add', formData: {} }">
+                        <x-educations.manage-education-modal
+                            :show="'modalOpen'"
+                            :onClose="'modalOpen = false'"
+                        />
+
+                        <div class="border-b flex justify-between py-2" >
+                            <h3 class="text-xl font-bold tracking-wide ">Educations</h3>
+
+                            <button
+                                @click="modalOpen = true; mode = 'add'; formData = {}"
+                                class="text-slate-800 bg-white rounded-lg px-3 py-1">
+                                Add Education
+                            </button>
+                        </div>
+
+                        <ul class="list-disc ml-5 space-y-4 mt-6">
+                            @foreach($user->educations as $education)
+                                <li class="space-y-1">
+                                    <div class="flex justify-between">
+                                        <p class="text-base tracking-wide">{{ $education->level }}</p>
+
+                                        <div class="flex">
+                                            <button
+                                                @click="modalOpen = true; mode = 'edit'; formData = {{$education}}"
+                                                class="p-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                                <svg class="w-[20px] h-[20px] text-white" aria-hidden="true"
+                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                     fill="none" viewBox="0 0 24 24">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                          stroke-width="2"
+                                                          d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                                                </svg>
+                                            </button>
+
+                                            <form action="{{ route('educations.destroy', $education->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this education?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="p-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                                    <!-- Delete Icon -->
+                                                    <svg class="w-[20px] h-[20px] text-white " aria-hidden="true"
+                                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                         fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-width="2"
+                                                              d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <p class="text-base tracking-wide">{{ $education->institution }}</p>
+                                    <p class="text-base tracking-wide">{{ $education->description }}</p>
+                                    <p class="text-base tracking-wide">{{ $education->year }}</p>
+
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
 
                     <div x-data="{ modalOpen: false, mode: 'add', formData: {} }">

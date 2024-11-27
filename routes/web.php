@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/skills', SkillController::class)
         ->only(['store', 'update', 'destroy']);
+
+    Route::resource('/educations', UserEducationController::class)
+        ->only(['store', 'update', 'destroy']);
 });
 
 Route::get('/employer/dashboard', function () {
