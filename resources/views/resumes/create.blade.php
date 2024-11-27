@@ -147,8 +147,34 @@
             </div >
 
             <div class="col-span-2 px-5 py-8 text-slate-800">
-                <div>
-                    <h2 class="text-5xl font-bold tracking-widest">{{ $user->name }}</h2>
+                <div x-data="{ modalOpen: false, mode: 'add', formData: {{$user}} }">
+                    <x-user.manage-primary-details-modal
+                        :show="'modalOpen'"
+                        :onClose="'modalOpen = false'"/>
+
+                    <div class="flex justify-between" >
+                        <h2 class="text-5xl font-bold tracking-widest leading-3">{{ $user->name }}</h2>
+
+                        <button
+                            @click="modalOpen = true; mode = 'edit'; formData = {{$user}}"
+                            class="p-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <svg class="w-[20px] h-[20px] text-gray-800 " aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    @if($user->job_title)
+                        <h3 class="text-3xl font-bold tracking-widest">{{ $user->job_title }}</h3>
+                    @endif
+
+                    @if($user->bio)
+                        <h3 class="text-base font-medium tracking-wide mt-4">{{ $user->bio }}</h3>
+                    @endif
                 </div>
 
                 <div class="mt-12" x-data="{ modalOpen: false, mode: 'add', formData: {} }">
