@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Applicant\ResumeController;
+use App\Http\Controllers\Applicant\SkillController;
+use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -20,6 +23,15 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/resumes', [ResumeController::class, 'index'])->middleware(['auth', 'verified'])->name('resumes');
+
+Route::get('/resumes/create', [ResumeController::class, 'create'])
+    ->middleware(['auth', 'verified'])->name('resumes.create');
+
+Route::post('/resumes', [ResumeController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('resumes.store');
+
+Route::get('/resumes/{resume}', [ResumeController::class, 'show']);
 
 Route::get('/company/registration', function(){
     return view('registration');
@@ -29,6 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('/work-experiences', WorkExperienceController::class)
+        ->only(['store', 'update', 'destroy']);
+
+    Route::resource('/skills', SkillController::class)
+        ->only(['store', 'update', 'destroy']);
+
+    Route::resource('/educations', UserEducationController::class)
+        ->only(['store', 'update', 'destroy']);
 });
 
 Route::get('/employer/dashboard', function () {
