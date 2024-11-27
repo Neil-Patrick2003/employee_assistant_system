@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Applicant\ResumeController;
+use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/work-experiences', WorkExperienceController::class)
+        ->only(['store', 'update', 'destroy']);
+
+    Route::resource('/skills', SkillController::class)
         ->only(['store', 'update', 'destroy']);
 });
 
