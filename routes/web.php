@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Applicant\ResumeController;
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -24,9 +25,8 @@ Route::get('/resumes', function () {
     return view('resumes.index');
 })->middleware(['auth', 'verified'])->name('resumes');
 
-Route::get('/resumes/create', function () {
-    return view('resumes.create');
-})->middleware(['auth', 'verified'])->name('resumes.create');
+Route::get('/resumes/create', [ResumeController::class, 'create'])
+    ->middleware(['auth', 'verified'])->name('resumes.create');
 
 Route::get('/company/registration', function(){
     return view('registration');
