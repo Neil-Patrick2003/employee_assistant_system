@@ -20,6 +20,13 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/resumes', function () {
+    return view('resumes.index');
+})->middleware(['auth', 'verified'])->name('resumes');
+
+Route::get('/resumes/create', function () {
+    return view('resumes.create');
+})->middleware(['auth', 'verified'])->name('resumes.create');
 
 Route::get('/company/registration', function(){
     return view('registration');
