@@ -1,4 +1,4 @@
-<div class="bg-white rounded-2xl grid grid-cols-3 overflow-hidden">
+<div class="bg-white w-[792px] h-[1123px] rounded-2xl grid grid-cols-3 overflow-hidden">
     <div class="col-span-1 bg-[#323B4C] text-white px-5 py-8">
         <div class="space-y-12">
             <div class="space-y-5">
@@ -23,7 +23,7 @@
                     @if($editable)
                         <button
                             @click="modalOpen = true; mode = 'add'; formData = {}"
-                            class="text-slate-800 bg-white rounded-lg px-3 py-1">
+                            class="text-slate-800 bg-white rounded-lg px-1 py-1">
                             Add Education
                         </button>
                     @endif

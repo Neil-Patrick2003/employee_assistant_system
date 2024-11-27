@@ -15,17 +15,14 @@
 </head>
 
 <body class="">
-<div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-gray-100">
 
-    <main>
-
-        <div class="w-full max-w-7xl mx-auto space-y-5 py-8">
-            <x-resume-template :user="$resume->user" :name="$resume->template" :editable="false"/>
-        </div>
-
-    </main>
-</div>
+        <main>
+            <div class="w-full min-h-screen max-w-7xl mx-auto flex justify-center items-center space-y-5 py-8">
+                <x-resume-template :user="$resume->user" :name="$resume->template" :editable="false" />
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
-

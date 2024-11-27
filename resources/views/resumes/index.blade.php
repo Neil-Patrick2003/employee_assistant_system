@@ -1,39 +1,57 @@
 <x-app-layout>
-
-    <div class="mx-auto max-w-full h-36 sm:h-48 sm:px-6 lg:px-8 bg-slate-900 overflow-hidden shadow-sm rounded-b-2xl sm:rounded-b-3xl">
-        <div class="p-4 sm:p-6 text-white">
-            <div class="">
-                <p class="text-lg sm:text-xl font-medium">
-                    Hello User
-                </p>
-                <h1 class="text-2xl sm:text-4xl font-bold leading-tight">
-                    Find Your Great Job
-                </h1>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="py-4">
-        <div class="max-x8xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-6">
+        <div class="max-w-screen-xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-b-2xl">
                 <div class="p-6 text-gray-900">
                     Resume List
                 </div>
 
-                <a href="/resumes/create">Create new</a>
+                <a href="/resumes/create" class="inline-block mt-4 bg-blue-600 text-white rounded px-4 py-2">
+                    Create new
+                </a>
             </div>
-
-            <ul>
-                @foreach($resumes as $resume)
-                   <a href="/resumes/{{$resume->id}}">
-                       <p>{{$resume->template}}</p>
-                   </a>
-                @endforeach
-            </ul>
         </div>
     </div>
-</x-app-layout>
 
+    <h1 class="text-2xl font-bold mt-6 mx-12">Templates</h1>
+    
+    <div class="mx-12 mt-6">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            
+            <!-- Template Example 1 -->
+            <a href="/resumes/create?template=basic" class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow h-96 transition duration-300 hover:scale-95">
+                <div class="flex justify-center items-center h-full">
+                    <div class="text-center">
+                        Basic Template
+                    </div>
+                </div>
+            </a>
+
+            <!-- Template Example 2 -->
+            <a href="/resumes/create?template=two-columns" class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow h-96 transition duration-300 hover:scale-95">
+                <div class="flex justify-center items-center h-full">
+                    <div class="text-center">
+                        Double Column Template
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="p-6 mt-8">
+        <h2 class="text-2xl font-bold mx-12 mb-6">Your Resumes</h2>
+        <ul role="list" class="mx-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            @foreach ($resumes as $resume)
+                <a href="/resumes/{{ $resume->id }}" class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow h-96 transition duration-300 hover:scale-95">
+                    <div class="flex justify-center items-center h-full">
+                        <div class="text-center">
+                            <p class="text-lg">{{ $resume->template }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </ul>
+    </div>
+
+</x-app-layout>

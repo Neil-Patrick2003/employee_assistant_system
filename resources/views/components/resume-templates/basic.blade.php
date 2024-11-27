@@ -1,4 +1,4 @@
-<div class="bg-white rounded-2xl overflow-hidden py-8 px-5">
+<div class="bg-white w-[792px] h-[1123px] rounded-lg overflow-hidden py-8 px-5">
     <div x-data="{ modalOpen: false, formData: {{$user}} }">
         <x-user.manage-primary-details-modal
             :show="'modalOpen'"
