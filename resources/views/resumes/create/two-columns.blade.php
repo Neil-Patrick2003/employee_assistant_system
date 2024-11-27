@@ -14,16 +14,6 @@
                                 <p>Email</p>
                                 <p>{{ $user->email }}</p>
                             </li>
-
-                            <li>
-                                <p>Contact Number</p>
-                                <p>09051396541</p>
-                            </li>
-
-                            <li>
-                                <p>Address</p>
-                                <p>Tuy Batangas</p>
-                            </li>
                         </ul>
                     </div>
 
