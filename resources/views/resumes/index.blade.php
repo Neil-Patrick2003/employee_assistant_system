@@ -20,9 +20,19 @@
         <div class="max-x8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-b-2xl">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    Resume List
                 </div>
+
+                <a href="/resumes/create">Create new</a>
             </div>
+
+            <ul>
+                @foreach($resumes as $resume)
+                   <a href="/resumes/{{$resume->id}}">
+                       <p>{{$resume->template}}</p>
+                   </a>
+                @endforeach
+            </ul>
         </div>
     </div>
 </x-app-layout>

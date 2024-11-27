@@ -23,12 +23,15 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/resumes', function () {
-    return view('resumes.index');
-})->middleware(['auth', 'verified'])->name('resumes');
+Route::get('/resumes', [ResumeController::class, 'index'])->middleware(['auth', 'verified'])->name('resumes');
 
 Route::get('/resumes/create', [ResumeController::class, 'create'])
     ->middleware(['auth', 'verified'])->name('resumes.create');
+
+Route::post('/resumes', [ResumeController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('resumes.store');
+
+Route::get('/resumes/{resume}', [ResumeController::class, 'show']);
 
 Route::get('/company/registration', function(){
     return view('registration');
