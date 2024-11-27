@@ -1,22 +1,24 @@
 <?php
 
-use App\Http\Controllers\Applicant\AppplicantController;
-use App\Http\Controllers\Applicant\JobController;
-use App\Http\Controllers\Applicant\JobPreferencesController;
-use App\Http\Controllers\Employer\CompanyController;
-use App\Http\Controllers\Employer\ConfigurationController;
-use App\Http\Controllers\Employer\JobListingController;
-use App\Http\Controllers\Employer\JobSkillController;
-use App\Http\Controllers\ProfileController;
+use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Applicant\JobController;
+use App\Http\Controllers\Employer\CompanyController;
+use App\Http\Controllers\Employer\JobSkillController;
+use App\Http\Controllers\Employer\JobListingController;
+use App\Http\Controllers\Applicant\AppplicantController;
+use App\Http\Controllers\Employer\ConfigurationController;
+use App\Http\Controllers\Applicant\UserEducationController;
+use App\Http\Controllers\Applicant\JobPreferencesController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::get('/company/registration', function(){
@@ -33,11 +35,18 @@ Route::get('/employer/dashboard', function () {
     return view('employer/index');
 })->middleware(['auth', 'verified'])->name('EmployerDashboard');
 
-//applicant
-Route::get('/applicant/profile', [AppplicantController::class, 'index'])->name('applicant_profile'); 
-Route::post('/applicant/profile/edit', [JobPreferencesController::class, 'store']);
 
+
+//applicant
+Route::get('/dashboard', [AppplicantController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/applicant/profile', [AppplicantController::class, 'profile'])->name('applicant_profile');
+Route::post('/applicant/profile/edit', [JobPreferencesController::class, 'store']);
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::post('/applicant/profile/add-education', [UserEducationController::class, 'store']);
+
+
+
+
 
 
 

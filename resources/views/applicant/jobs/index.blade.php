@@ -1,4 +1,14 @@
 <x-app-layout>
+    
+
+
+    <div class="flex p-4 sm: flex-col md:flex-row">
+        <div class="w-1/5"> 1</div>
+        <div class="w-2/5">2</div>
+        <div class="w-2/5">3</div>
+
+
+    </div>
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

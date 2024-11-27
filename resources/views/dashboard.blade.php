@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="mx-auto max-w-full h-36 sm:h-48 sm:px-6 lg:px-8 bg-slate-900 overflow-hidden shadow-sm rounded-b-2xl sm:rounded-b-3xl">
+    <div class="mx-2 max-w-full h-36 sm:h-48 sm:px-6 lg:px-8 bg-slate-900 overflow-hidden shadow-sm rounded-b-2xl sm:rounded-b-3xl">
         <div class="p-4 sm:p-6 text-white">
             <div class="">
                 <p class="text-lg sm:text-xl font-medium">
@@ -12,9 +12,16 @@
             </div>
         </div>
     </div>
-    
-    
-     
+
+    <div class="px-16">
+        <h1>Recommended Job Foryou</h1>
+        <div>
+
+        </div>
+    </div>
+
+
+
 
     <div class="py-4">
         <div class="max-x8xl mx-auto sm:px-6 lg:px-8">
