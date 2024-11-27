@@ -18,7 +18,7 @@ class ResumeController extends Controller
 
     public function create(Request $request)
     {
-        $user = Auth::user()->load(['educations', 'skills']);
+        $user = Auth::user()->load(['educations', 'skills', 'work_experiences']);
 
         return view('resumes.create', ['user' => $user]);
     }

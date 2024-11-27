@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(UserSkill::class);
     }
 
+    public function work_experiences(): HasMany
+    {
+        return $this->hasMany(WorkExperience::class);
+    }
+
     public function user_skill(){
         return $this->hasMany(UserSkill::class);
     }
