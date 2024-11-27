@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class JobListing extends Model
 {
-    protected $fillable = [    
+    protected $fillable = [
         'company_id',
         'title',
         'description',
@@ -30,5 +32,15 @@ class JobListing extends Model
 
     public function job_education(){
         return $this->hasOne(JobEducation::class);
+    }
+
+    public function my_application()
+    {
+        return $this->hasOne(Application::class, 'job_id', 'id')
+            ->when(
+                Auth::check(),
+                fn (Builder $query) => $query->where('user_id', Auth::id()),
+                fn (Builder $query) => $query->whereNull('user_id'),
+            );
     }
 }

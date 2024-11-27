@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Applicant\ApplicationController;
 use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\WorkExperienceController;
@@ -63,7 +64,9 @@ Route::get('/dashboard', [AppplicantController::class, 'index'])->middleware(['a
 Route::get('/applicant/profile', [AppplicantController::class, 'profile'])->name('applicant_profile');
 Route::post('/applicant/profile/edit', [JobPreferencesController::class, 'store']);
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::post('/applicant/applications', [ApplicationController::class, 'store']);
 Route::post('/applicant/profile/add-education', [UserEducationController::class, 'store']);
+
 
 
 
