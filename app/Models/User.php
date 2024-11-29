@@ -55,10 +55,6 @@ class User extends Authenticatable
         return $this->hasOne(Company::class, 'user_id');
     }
 
-    public function job_preference(){
-        return $this->has(UserJobPreferences::class);
-    }
-
     public function user_education(){
         return $this->has(UserEducation::class);
     }
@@ -85,5 +81,10 @@ class User extends Authenticatable
     public function resumes(): HasMany
     {
         return $this->hasMany(Resume::class);
+    }
+
+    public function job_preference()
+    {
+        return $this->hasOne(UserJobPreferences::class);
     }
 }

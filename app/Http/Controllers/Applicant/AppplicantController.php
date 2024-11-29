@@ -16,16 +16,15 @@ class AppplicantController extends Controller
         return view('dashboard');
     }
 
-    public function profile(){
-        $user_education = UserEducation::where('user_id', '=', Auth::id());
+    public function profile()
+    {
+        UserJobPreferences::firstOrCreate(['user_id' => Auth::id()]);
+
+        $user = Auth::user()->loadMissing(['educations', 'skills', 'work_experiences', 'job_preference']);
 
         return view('applicant.profile.index', [
-            'user_education' => $user_education
+            'user' => $user,
+            'editable' => true
         ]);
-    }
-
-    
-    public function store(){
-        dd(request()->toArray());
     }
 }

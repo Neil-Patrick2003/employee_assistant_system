@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Applicant\ApplicationController;
+use App\Http\Controllers\Applicant\JobPreferenceController;
 use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\WorkExperienceController;
@@ -52,6 +53,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/educations', UserEducationController::class)
         ->only(['store', 'update', 'destroy']);
+
+    Route::put('/applicant/preference', [JobPreferenceController::class, 'store']);
 });
 
 Route::get('/employer/dashboard', function () {
