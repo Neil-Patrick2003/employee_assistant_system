@@ -1,9 +1,6 @@
 <x-app-layout>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-
-
         <div class="sm:flex sm:items-center py-6">
             <div class="sm:flex-auto">
                 <h1 class="text-base font-semibold text-gray-900">My Applications</h1>
@@ -45,8 +42,6 @@
                                         <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
                                             <div class="flex items-center">
                                                 <div class="size-11 shrink-0">
-
-
                                                     <img class="size-11 rounded-full"
                                                         src="{{ asset('storage/' . $application->job->company->logo_url) }}"
                                                         alt="Logo">
@@ -77,14 +72,9 @@
                                                 <span
                                                     class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">{{ $application->status }}</span>
                                             @endif
-
-
-
-
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                                             {{ $application->created_at }}</td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
