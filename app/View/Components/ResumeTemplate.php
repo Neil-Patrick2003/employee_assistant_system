@@ -17,9 +17,7 @@ class ResumeTemplate extends Component
 
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
+
     public function render(): View|Closure|string
     {
         return view('components.resume-templates.' . $this->name, ['user' => $this->user, 'editable' => $this->editable]);
