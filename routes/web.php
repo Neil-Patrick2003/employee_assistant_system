@@ -15,6 +15,7 @@ use App\Http\Controllers\Applicant\AppplicantController;
 use App\Http\Controllers\Employer\ConfigurationController;
 use App\Http\Controllers\Applicant\UserEducationController;
 use App\Http\Controllers\Applicant\JobPreferencesController;
+use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,6 +80,7 @@ Route::post('/applicant/profile/add-education', [UserEducationController::class,
 //employer job
 
 Route::get('/employer/jobs', [JobListingController::class, 'index']);
+Route::get('/employer/applications', [EmployerApplicantController::class, 'index']);
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 
 Route::post('/employer/jobs/create', [JobListingController::class, 'store']);

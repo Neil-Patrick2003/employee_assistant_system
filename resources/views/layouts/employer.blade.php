@@ -233,7 +233,7 @@
                                 </x-employer-nav-link>
                             </li>
                             <li>
-                                <x-employer-nav-link href="{{ url('/employer/applicants') }}" :active="request()->is('employer/applicants')">
+                                <x-employer-nav-link href="{{ url('/employer/applications') }}" :active="request()->is('employer/applications')">
                                     <x-slot:icon>
                                         <svg class="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                                             fill="none" viewBox="0 0 24 24" stroke-width="1.5"
