@@ -29,6 +29,13 @@ class JobController extends Controller
             ->where('user_id', '=', Auth::id())
             ->get();
 
+        $resumes = Resume::with('user')
+        ->where('user_id', '=', Auth::id())
+        ->get();
+
+    
+
+
         return view('applicant.jobs.show', [
             'job' => $job,
             'resumes' => $resumes
