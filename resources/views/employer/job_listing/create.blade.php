@@ -94,7 +94,7 @@
                             <div class="mt-2">
                                 <div
                                     class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                    <input type="text" name="salary" id="salary" placeholder="00.00"
+                                    <input type="number" name="salary" id="salary" placeholder="00.00"
                                         class="block pl-2 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
                                 </div>
                                 @error('salary')
@@ -127,9 +127,9 @@
                             <div class="mt-2">
                                 <select id="work_policy" name="work_policy"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
-                                    <option>Onsite</option>
-                                    <option>Remote</option>
-                                    <option>Hybrid</option>
+                                    <option value="Onsite">Onsite</option>
+                                    <option value="Remote">Remote</option>
+                                    <option value="Hybrid">Hybrid</option>
                                 </select>
                             </div>
                             @error('work_policy')
@@ -170,6 +170,8 @@
                                 Age</label>
                             <div class="mt-2">
                                 <input type="number" name="min_age" id="min-age"
+                                       min="18"
+                                       max="60"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
                             </div>
                             @error('min_age')
@@ -184,6 +186,8 @@
                                 Age</label>
                             <div class="mt-2">
                                 <input type="number" name="max_age" id="max_age" autocomplete="family-name"
+                                       min="18"
+                                       max="60"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
                             </div>
                             @error('max_age')
@@ -210,10 +214,14 @@
                         <div class="col-span-full">
                             <label for="scope" class="block text-sm/6 font-medium text-gray-900">Scope</label>
                             <div class="mt-2">
-                                <textarea id="scope" name="scope" rows="3"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                                <select id="scope" name="scope"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                >
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Project Based">Project Based</option>
+                                </select>
                             </div>
-                            <p class="mt-3 text-sm/6 text-gray-600">Write a scope of the Jobs.</p>
                             @error('scope')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -279,10 +287,13 @@
                             <div class="mt-2">
                                 <select id="level" name="level"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
-                                    <option>Elementary Graduate</option>
-                                    <option>High Scool Graduate</option>
-                                    <option>Collage Graduate</option>
-                                    <option>Not applicable</option>
+                                    <option value="">Select Education Level</option>
+                                    <option value="Elementary">Elementary</option>
+                                    <option value="High-School">High-School</option>
+                                    <option value="Vocational">Vocational</option>
+                                    <option value="College">College</option>
+                                    <option value="Masteral">Masteral</option>
+                                    <option value="Doctoral">Doctoral</option>
                                 </select>
                             </div>
                             @error('level')

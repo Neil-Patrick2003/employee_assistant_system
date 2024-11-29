@@ -21,7 +21,7 @@
         {{-- Age --}}
         <div class="mt-4">
             <x-input-label for="age" :value="__('Age')" />
-            <x-text-input id="age" class="block mt-1 w-full" type="text" name="age" :value="old('age')"
+            <x-text-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')"
                 required />
             <x-input-error :messages="$errors->get('age')" class="mt-2" />
         </div>
@@ -30,11 +30,10 @@
         <div class="mt-4">
             <x-input-label for="role" class="block text-sm/6 font-medium text-gray-900" :value="__('Role')" />
             <select id="role" name="role" class="mt-2 block w-full rounded-md border-0 p-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm/6">
-              <option>Employer</option>
-              <option selected>Applicant</option>
+                <option value="Applicant">Applicant</option>
+                <option value="Employer">Employer</option>
             </select>
           </div>
-
 
 
         <!-- Password -->

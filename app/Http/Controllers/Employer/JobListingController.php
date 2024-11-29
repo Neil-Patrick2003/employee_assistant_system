@@ -41,7 +41,6 @@ class JobListingController extends Controller
             ->where('id', '=', Auth::id())
             ->first();
 
-
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
@@ -58,7 +57,7 @@ class JobListingController extends Controller
         ]);
 
 
-       
+
 
         $job = JobListing::create([
             'company_id' => $user->company->id,
