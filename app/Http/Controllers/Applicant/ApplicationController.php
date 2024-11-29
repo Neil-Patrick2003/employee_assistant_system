@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
 {
+    public function index()
+    {
+        $applications = Application::where('user_id', Auth::id())
+            ->with(['job.company', 'resume'])
+            ->get();
+
+        return view('applicant.applications.index', ['applications' => $applications]);
+    }
+
     public function store(Request $request)
     {
 

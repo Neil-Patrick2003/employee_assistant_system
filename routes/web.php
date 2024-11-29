@@ -64,6 +64,7 @@ Route::get('/dashboard', [AppplicantController::class, 'index'])->middleware(['a
 Route::get('/applicant/profile', [AppplicantController::class, 'profile'])->name('applicant_profile');
 Route::post('/applicant/profile/edit', [JobPreferencesController::class, 'store']);
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/applicant/applications', [ApplicationController::class, 'index'])->name('applicant.applications.index');
 Route::post('/applicant/applications', [ApplicationController::class, 'store']);
 Route::post('/applicant/profile/add-education', [UserEducationController::class, 'store']);
 
