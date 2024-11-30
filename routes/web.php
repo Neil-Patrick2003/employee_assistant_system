@@ -5,12 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\JobSkillController;
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Employer\ApplicantController;
 use App\Http\Controllers\Employer\JobListingController;
 use App\Http\Controllers\Applicant\AppplicantController;
@@ -20,6 +20,7 @@ use App\Http\Controllers\Applicant\JobPreferenceController;
 use App\Http\Controllers\Applicant\UserEducationController;
 use App\Http\Controllers\Applicant\JobPreferencesController;
 use App\Http\Controllers\Applicant\WorkExperienceController;
+use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
 
 Route::get('/', function () {
@@ -110,4 +111,5 @@ Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/manage-users', [UserController::class, 'index']);
 Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
+Route::get('/admin/announcements', [AnnouncementController::class, 'index']);
 require __DIR__ . '/auth.php';
