@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\ResumeController;
@@ -107,5 +108,6 @@ Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 
 //admin
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::get('/admin/user-management', [UserController::class, 'index']);
+Route::get('/admin/manage-users', [UserController::class, 'index']);
+Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
 require __DIR__ . '/auth.php';
