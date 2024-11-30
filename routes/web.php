@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Applicant\JobController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Employer\CompanyController;
