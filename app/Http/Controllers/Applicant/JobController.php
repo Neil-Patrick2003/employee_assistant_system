@@ -46,7 +46,6 @@ class JobController extends Controller
         $jobs = $query->with(['company', 'my_application'])->get();
         $count = $jobs->count();
 
-        dump($count);
 
         return view('applicant.jobs.index', [
             'jobs' => $jobs,

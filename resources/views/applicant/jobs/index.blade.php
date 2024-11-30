@@ -136,7 +136,7 @@
                 </form>
             </div>
 
-            <p class="text-sm text-gray-600">
+            <p class="text-sm py-2 text-gray-600">
                 {{ $count }} job{{ $count !== 1 ? 's' : '0' }} available.
             </p>
             <div class="">
