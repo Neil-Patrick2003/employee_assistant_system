@@ -1,7 +1,10 @@
 <x-app-layout>
     <div class="grid grid-cols-4 gap-5 max-w-7xl mx-auto py-8">
        <div>
-           <div class="bg-white rounded-lg p-5" x-data="{ modalOpen: false, formData: {{$user}} }">
+
+
+
+           <div class="bg-red-600 rounded-lg p-5" x-data="{ modalOpen: false, formData: {{$user}} }">
                <h1 class="text-xl font-bold text-center">{{$user->name}}</h1>
 
                <x-user.manage-primary-details-modal
@@ -327,4 +330,8 @@
             </div>
         </div>
     </div>
+
+
+
+
 </x-app-layout>

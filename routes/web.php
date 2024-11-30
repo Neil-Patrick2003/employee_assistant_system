@@ -1,22 +1,23 @@
 <?php
 
-use App\Http\Controllers\Applicant\ApplicationController;
-use App\Http\Controllers\Applicant\JobPreferenceController;
-use App\Http\Controllers\Applicant\ResumeController;
-use App\Http\Controllers\Applicant\SkillController;
-use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Applicant\JobController;
+use App\Http\Controllers\Applicant\SkillController;
+use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\JobSkillController;
 use App\Http\Controllers\Employer\ApplicantController;
 use App\Http\Controllers\Employer\JobListingController;
 use App\Http\Controllers\Applicant\AppplicantController;
+use App\Http\Controllers\Applicant\ApplicationController;
 use App\Http\Controllers\Employer\ConfigurationController;
+use App\Http\Controllers\Applicant\JobPreferenceController;
 use App\Http\Controllers\Applicant\UserEducationController;
 use App\Http\Controllers\Applicant\JobPreferencesController;
+use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
 
 Route::get('/', function () {
@@ -88,17 +89,22 @@ Route::get('/employer/applications', [EmployerApplicantController::class, 'index
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
 Route::patch('/employer/applications/{application}', [ApplicantController::class, 'update']);
-
-
 //company profile
 Route::get('/employer/profile', [CompanyController::class, 'index']);
 Route::get('/employer/profile/edit', [CompanyController::class, 'create']);
 Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
-
 //config
 Route::get('/employer/configurations', [ConfigurationController::class, 'index']);
 Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'store']);
 
 Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 
+
+
+
+
+
+//admin
+Route::get('/admin/dashboard', [AdminController::class, 'index']);
+Route::get('/admin/user-management');
 require __DIR__ . '/auth.php';

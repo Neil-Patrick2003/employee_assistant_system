@@ -14,7 +14,6 @@
             <li>{{  $user->email }}</li>
         </ul>
 
-
         @if($user->bio)
             <h3 class="text-base font-medium tracking-wide mt-4 text-center">{{ $user->bio }}</h3>
         @endif
@@ -36,7 +35,6 @@
                 :show="'modalOpen'"
                 :onClose="'modalOpen = false'"
             />
-
             <div class="border-b flex justify-between py-2">
                 <h3 class="text-xl font-bold tracking-wide ">Work Experiences</h3>
 

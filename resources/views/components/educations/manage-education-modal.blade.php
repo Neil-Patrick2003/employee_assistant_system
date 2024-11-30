@@ -56,7 +56,6 @@
                 @enderror
             </div>
 
-            <!-- Modal Actions -->
             <div class="flex justify-end">
                 <button
                     type="button"

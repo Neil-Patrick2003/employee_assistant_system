@@ -2,6 +2,8 @@
     x-show="{{ $show }}"
     class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 text-slate-800"
     x-cloak
+
+
 >
 
     <div class="bg-white p-6 rounded shadow-lg w-full max-w-3xl mx-auto">

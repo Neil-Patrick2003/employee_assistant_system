@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('photo_url')->nullable();
+            $table->string(column: 'photo_url')->nullable();
         });
     }
-    
-    
+
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('photo_url');
+            $table->string(column: 'photo_url');
         });
     }
 };
