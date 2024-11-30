@@ -3,6 +3,7 @@
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Applicant\JobController;
 use App\Http\Controllers\Applicant\SkillController;
@@ -106,5 +107,5 @@ Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 
 //admin
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::get('/admin/user-management');
+Route::get('/admin/user-management', [UserController::class, 'index']);
 require __DIR__ . '/auth.php';

@@ -173,7 +173,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/admin/user-management"
                                         class="group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                                         <svg class="size-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                                             fill="none" viewBox="0 0 24 24" stroke-width="1.5"
