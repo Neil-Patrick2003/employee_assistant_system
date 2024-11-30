@@ -24,4 +24,17 @@ class ApplicantController extends Controller
         return view('employer.applications.index', ['applications' => $applications]);
 
     }
+
+    public function update(Request $request, $id){
+        $application = Application::find($id);
+
+        $application->status = $request->status;
+
+        $application->save();
+
+        return redirect()->back()->with('status', 'Application status updated successfully!');
+        
+    }
+
+
 }

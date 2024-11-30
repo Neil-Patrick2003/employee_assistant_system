@@ -53,7 +53,7 @@ class JobListingController extends Controller
             'work_experience' => 'required|integer|min:0',
             'scope' => 'required',
             'level' => 'required',
-            'education_description' => 'nullable'
+            'education_description' => 'required'
         ]);
 
 

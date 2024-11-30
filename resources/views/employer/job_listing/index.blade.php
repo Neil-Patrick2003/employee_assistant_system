@@ -1,28 +1,6 @@
 <x-employer-layout>
 
     <div>
-        <div>
-            <nav class="sm:hidden" aria-label="Back">
-                <a href="#" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
-                    <svg class="-ml-1 mr-1 size-5 shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true" data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    Back
-                </a>
-            </nav>
-            <nav class="hidden sm:flex" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-4">
-                    <li>
-                        <div class="flex">
-                            <a href="#" class="text-sm font-medium text-gray-500 hover:text-gray-700">Jobs</a>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
         <div class="mt-2 md:flex md:items-center md:justify-between">
             <div class="min-w-0 flex-1">
                 <h2 class="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">My Posted Jobs
@@ -31,7 +9,8 @@
             <div class="mt-4 flex shrink-0 md:ml-4 md:mt-0">
                 <a href="/employer/jobs/create">
                     <button type="button"
-                        class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Post Job</button>
+                        class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Post
+                        Job</button>
                 </a>
             </div>
         </div>
@@ -54,26 +33,87 @@
             </span>
         </div>
     @endif
-    <div class="mt-2 overflow-hidden rounded-lg bg-white shadow">
+    <div class="mt-2 overflow-hidden rounded-lg">
         @foreach ($company->jobs as $job)
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="p-4 grid grid-cols-4 gap-4">
-                    <div class="col-span-3 ...">
-                        <div class="flex justify-start  gap-2">
-                            <div><img class="inline-block size-16 rounded-md " src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <div class="">
+                <ul class="w-full flex flex-col gap-6 mt-4 border shadow-sm rounded-lg">
+                    <li class="bg-white rounded-md flex p-6">
+                        <div class="w-full space-y-1 md:space-y-2">
+                            <div class="flex justify-between items-start">
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                    <p class="text-slate-600 text-xs ">{{ $job->company->name }}</p>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-slate-600 text-xs">
+                                            {{ $job->created_at }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <button class="stroke-slate-600" fdprocessedid="wwanx">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="18"
+                                            fill="none">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m5.103 10.352 4.544 2.921m0-8.546L5.103 7.648m9.147 6.977a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM5.5 9a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm8.75-5.625a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="S">
-                                <h3>{{$job->title}}</h3>
-                                <p>Description</p>
+                            <div
+                                class="flex flex-col gap-4 w-full sm:gap-8 sm:flex-row sm:justify-between sm:items-center">
+                                <div class="flex flex-col justify-center gap-4">
+                                    <div class="flex gap-4">
+                                        <div
+                                            class="flex-initial border h-16 w-16 aspect-square flex items-center justify-center rounded-md">
+                                            <img class="w-auto object-fit rounded-md w-16"
+                                                src="{{ asset('storage/' . $job->company->logo_url) }}">
+                                        </div>
+                                        <h3 class="text-xl font-medium text-slate-600 md:text-2xl mt-2 flex-1">
+                                            {{ $job->title }}
+                                        </h3>
+
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="text-xs text-gray-500 flex items-center space-x-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="2" stroke="currentColor" aria-hidden="true"
+                                                class="w-5 h-5 text-gray-500">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg><span class="">{{ $job->location }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center items-center divide-y sm:flex-row sm:divide-x sm:divide-y-0 sm:items-center">
+                                    <div
+                                        class="pb-4 w-full flex flex-col gap-4 justify-center sm:w-auto sm:pr-4 sm:pt-0">
+                                        <p class="text-xl text-slate-700 sm:text-right">P
+                                            {{ $job->salary }}/month</p>
+                                        <div class="w-full flex justify-between gap-6 sm:justify-end">
+                                            <a class="w-full" href="">
+                                                <button type="button"
+                                                    class="px-5 py-3 font-medium flex justify-center items-center border transition duration-150 ease-in-out rounded-md text-sm focus:outline-none disabled:opacity-75 disabled:cursor-not-allowed text-slate-600 bg-white border-slate-500 hover:bg-slate-200 whitespace-nowrap w-full"
+                                                    fdprocessedid="u6ko35">View Details
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="...">2</div>
-
-                </div>
+                    </li>
+                </ul>
             </div>
         @endforeach
     </div>
+
+
+
+
 
 
 

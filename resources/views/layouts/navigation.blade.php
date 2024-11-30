@@ -52,8 +52,6 @@
                             <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m19 9-7 7-7-7" />
                         </svg>
-
-
                     </button>
 
                     <!-- Dropdown menu, show/hide based on dropdownOpen state -->
