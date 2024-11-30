@@ -9,18 +9,14 @@ use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Applicant\JobController;
-use App\Http\Controllers\Applicant\SkillController;
-use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Employer\CompanyController;
 use App\Http\Controllers\Employer\JobSkillController;
 use App\Http\Controllers\Employer\ApplicantController;
 use App\Http\Controllers\Employer\JobListingController;
 use App\Http\Controllers\Applicant\AppplicantController;
-use App\Http\Controllers\Applicant\ApplicationController;
 use App\Http\Controllers\Employer\ConfigurationController;
 use App\Http\Controllers\Applicant\UserEducationController;
 use App\Http\Controllers\Applicant\JobPreferencesController;
-use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
 
 Route::get('/', function () {
