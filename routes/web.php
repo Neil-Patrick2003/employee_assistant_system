@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use App\Models\UserEducation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -7,7 +8,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Applicant\JobController;
-use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\Applicant\SkillController;
 use App\Http\Controllers\Applicant\ResumeController;
 use App\Http\Controllers\Employer\CompanyController;
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
     Route::resource('/work-experiences', WorkExperienceController::class)
         ->only(['store', 'update', 'destroy']);
@@ -124,5 +126,5 @@ Route::get('/admin/manage-users', [UserController::class, 'index']);
 Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
 Route::resource('/admin/announcements', AnnouncementController::class);
 Route::get('/admin/reports', [ReportController::class, 'index']);
-Route::get('/admin/feedbacks', [FeedbackController::class, 'index']);
+Route::get('/admin/feedbacks', [AdminFeedbackController::class, 'index']);
 require __DIR__ . '/auth.php';
