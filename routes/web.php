@@ -23,15 +23,16 @@ use App\Http\Controllers\Applicant\UserEducationController;
 use App\Http\Controllers\Applicant\JobPreferencesController;
 use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Http\Controllers\Admin\JobController as AdminJobController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
+use App\Http\Controllers\LandingController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/job_listings', function () {
-    return view('job_listings');
-});
+Route::get('/job_listings', [LandingController::class, 'job_listing']);
+
 Route::get('/contact', function () {
     return view('contact');
 });
