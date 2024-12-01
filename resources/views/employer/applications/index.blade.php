@@ -140,7 +140,7 @@
                                                     method="POST">
                                                     @csrf
                                                     @method('Patch')
-                                                    <input type="hidden" name="status" value="Accepted">
+                                                    <input type="hidden" name="status" value="Hired">
                                                     <button type="submit"
                                                         class="px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
                                                         Accept
