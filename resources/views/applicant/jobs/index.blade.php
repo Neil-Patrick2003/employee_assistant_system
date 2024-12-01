@@ -36,14 +36,20 @@
                                         clip-rule="evenodd" />
                                 </svg>
 
-                                <!-- Location input -->
-                                <input name="location" value="{{ request('location') }}"
-                                    class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-l-md pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                                    placeholder="Add Location" />
-
-                                <!-- Add button -->
-                                <button type="submit"
-                                    class="px-3 py-1.5 border rounded-r-md bg-slate-900 text-neutral-100">Add</button>
+                                <select name="location" id="location"
+                                        onchange="document.getElementById('filter_form').submit();"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2">
+                                    <option
+                                        value=""
+                                        {{ request()->input('location', '') === '' ? 'selected' : '' }}>
+                                        All Location
+                                    </option>
+                                    @foreach(\App\Models\JobListing::getLocationOptions() as $location)
+                                        <option
+                                            {{ request()->input('location', '') === $location ? 'selected' : '' }}
+                                            value="{{$location}}">{{$location}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -95,7 +101,7 @@
                             <select name="work_policy" id="work_policy"
                                 onchange="document.getElementById('filter_form').submit();"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 p-2">
-                                <option selected disabled>Work Policy</option>
+                                <option value="" {{ request()->input('work_policy', '') === '' ? 'selected' : '' }}>All Work Policy</option>
                                 <option value="Remote" {{ request('work_policy') == 'Remote' ? 'selected' : '' }}>
                                     Remote
                                 </option>
@@ -123,13 +129,16 @@
                             <select name="category" id="category"
                                 onchange="document.getElementById('filter_form').submit();"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2">
-                                <option selected disabled>Category</option>
-                                <option value="Category 1" {{ request('category') == 'Category 1' ? 'selected' : '' }}>
-                                    Category 1</option>
-                                <option value="Category 2" {{ request('category') == 'Category 2' ? 'selected' : '' }}>
-                                    Category 2</option>
-                                <option value="Category 3" {{ request('category') == 'Category 3' ? 'selected' : '' }}>
-                                    Category 3</option>
+                                <option
+                                    value=""
+                                    {{ request()->input('category', '') === '' ? 'selected' : '' }}>
+                                    All Category
+                                </option>
+                                @foreach(\App\Models\JobListing::getCategoriesOptions() as $category)
+                                    <option
+                                        {{ request()->input('category', '') === $category ? 'selected' : '' }}
+                                        value="{{$category}}">{{$category}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

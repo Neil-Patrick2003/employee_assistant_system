@@ -44,7 +44,7 @@ class JobListing extends Model
             );
     }
 
-    public static function getCategoriesOptions()
+    public static function getCategoriesOptions(): array
     {
        return [
             "Administrative & Office Support",
@@ -67,4 +67,41 @@ class JobListing extends Model
             "Government & Public Sector",
         ];
     }
+
+    public static function getLocationOptions () {
+        return [
+            "Agoncillo",
+            "Alitagtag",
+            "Balayan",
+            "Balete",
+            "Batangas City",
+            "Bauan",
+            "Calaca",
+            "Calatagan",
+            "Cuenca",
+            "Ibaan",
+            "Laurel",
+            "Lemery",
+            "Lian",
+            "Lipa City",
+            "Mabini",
+            "Malvar",
+            "Mataasnakahoy",
+            "Nasugbu",
+            "Padre Garcia",
+            "Rosario",
+            "San Jose",
+            "San Juan",
+            "San Luis",
+            "San Nicolas",
+            "San Pascual",
+            "Santa Teresita",
+            "Santo Tomas",
+            "Taal",
+            "Talisay",
+            "Tanauan City",
+            "Tuy"
+        ];
+    }
+
 }

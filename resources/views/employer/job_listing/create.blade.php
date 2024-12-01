@@ -110,8 +110,14 @@
                             <div class="mt-2">
                                 <div
                                     class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                    <input type="text" name="location" id="location"
-                                        class="block pl-2 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
+
+                                    <select id="location" name="location"
+                                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                        <option value="">Please select location</option>
+                                        @foreach(\App\Models\JobListing::getLocationOptions() as $location)
+                                            <option value="{{$location}}">{{$location}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 @error('location')
                                     <div class="text-danger">
