@@ -4,7 +4,7 @@
         <h1 class="text-base font-semibold text-gray-900">My Applications</h1>
     </div>
 
-{{-- sucess message --}}
+    {{-- sucess message --}}
     @if (session('status'))
         <div class="rounded-md bg-green-50 p-4">
             <div class="flex">
@@ -35,7 +35,7 @@
             </div>
         </div>
     @endif
-{{-- table for applicant list --}}
+    {{-- table for applicant list --}}
     <div class="px-4 sm:px-6 lg:px-8 border rounded-xl ">
         <div class="mt-8 flow-root">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
@@ -115,6 +115,31 @@
                                                     method="POST">
                                                     @csrf
                                                     @method('Patch')
+                                                    <input type="hidden" name="status" value="Screening">
+                                                    <button type="submit"
+                                                        class="px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
+                                                        For Screening
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <form action="/employer/applications/{{ $application->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('Patch')
+                                                    <input type="hidden" name="status" value="Rejected">
+                                                    <button type="submit"
+                                                        class="px-4 py-2 bg-red-600 rounded-full text-neutral-100 hover:bg-red-700 transition duration-300 ease-in-out hover:text-white">
+                                                        Reject
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @elseif ($application->status == 'Screening')
+                                            <div>
+                                                <form action="/employer/applications/{{ $application->id }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('Patch')
                                                     <input type="hidden" name="status" value="Accepted">
                                                     <button type="submit"
                                                         class="px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
@@ -134,14 +159,15 @@
                                                     </button>
                                                 </form>
                                             </div>
+                                        
                                         @else
-                                            <div>
-                                                ----
-                                            </div>
+                                        <div>----   </div>
+                                            
                                         @endif
+                            
 
-                                    </td>
-                                </tr>
+                            </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
