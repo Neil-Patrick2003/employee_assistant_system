@@ -110,7 +110,7 @@ Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 
 
 //admin
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/manage-users', [UserController::class, 'index']);
 Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
 Route::get('/admin/announcements', [AnnouncementController::class, 'index']);
