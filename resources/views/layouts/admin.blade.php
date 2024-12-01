@@ -10,6 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
+    <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
+
+
 </head>
 
 <body class="h-full">
@@ -161,7 +164,7 @@
                 <nav class="flex flex-1 flex-col">
                     <ul role="list" class="flex flex-1 flex-col gap-y-7">
                         <li>
-                            <ul role="list" class="-mx-2 space-y-1">
+                            <ul role="list" class="-mx-2 space-y-1 ">
                                 <li>
                                     <a href="/admin/dashboard"
                                         class="group flex gap-x-3 rounded-md bg-gray-50 p-2 text-sm/6 font-semibold text-indigo-600">
@@ -239,27 +242,21 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="py-1 w-full" role="none">
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit"
+                                class="flex items-center w-full text-slate-950 px-4 py-2 rounded-md hover:bg-gray-200 transition duration-150 ease-in-out">
+                                <center>Logout</center>
+                                
+                            </button>
+                        </form>
+                    </div>
                 </nav>
             </div>
         </div>
 
-        <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-            <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
-                <span class="sr-only">Open sidebar</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    aria-hidden="true" data-slot="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-            <div class="flex-1 text-sm/6 font-semibold text-gray-900">Dashboard</div>
-            <a href="#">
-                <span class="sr-only">Your profile</span>
-                <img class="size-8 rounded-full bg-gray-50"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="">
-            </a>
-        </div>
+
 
         <main class="py-10 lg:pl-72">
             <div class="px-4 sm:px-6 lg:px-8">
@@ -267,6 +264,8 @@
             </div>
         </main>
     </div>
+
+
 
 
 </body>
