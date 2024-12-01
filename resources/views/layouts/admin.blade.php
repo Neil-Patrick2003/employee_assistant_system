@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -38,7 +39,7 @@
                                 <li>
                                     <ul role="list" class="-mx-2 space-y-1">
                                         <li>
-                                            <a href="#"
+                                            <a href="/admin/dashboard"
                                                 class="group flex gap-x-3 rounded-md bg-gray-50 p-2 text-sm/6 font-semibold text-indigo-600">
                                                 <svg class="size-6 shrink-0 text-indigo-600" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -161,7 +162,7 @@
                         <li>
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li>
-                                    <a href="#"
+                                    <a href="/admin/dashboard"
                                         class="group flex gap-x-3 rounded-md bg-gray-50 p-2 text-sm/6 font-semibold text-indigo-600">
                                         <svg class="size-6 shrink-0 text-indigo-600" fill="none"
                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
