@@ -51,7 +51,7 @@
 
             <!-- Desktop Log In Button -->
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#"
+                <a href="/login"
                     class="text-sm font-semibold text-gray-900 hover:text-indigo-600 transition duration-300 ease-in-out 
                     {{ request()->is('login') ? 'underline text-indigo-600' : '' }}">Log
                     in</a>
