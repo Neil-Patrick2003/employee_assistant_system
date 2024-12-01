@@ -21,6 +21,7 @@ class AppplicantController extends Controller
 
         $matched_jobs = JobListing::matchUserPreference(Auth::user())
             ->with(['company', 'my_application'])
+            ->doesntHave('my_application')
             ->get();
 
         return view('dashboard', [
