@@ -15,8 +15,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $totalActiveJobListings = JobListing::count();
-        $totalInactiveJobListings = JobListing::count();
+        $totalActiveJobListings = JobListing::where('status', 'Active')->count();
+        $totalInactiveJobListings = JobListing::where('status', 'Inactive')->count();
         $totalRegisteredJobSeekers = User::where('role', 'Applicant')->count();
         $totalRegisteredEmployers = User::where('role', 'Employer')->count();
         $totalFilledApplication = Application::count();

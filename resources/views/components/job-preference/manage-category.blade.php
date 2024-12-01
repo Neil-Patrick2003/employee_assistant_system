@@ -17,9 +17,24 @@
             <div class="mb-4">
                 <select name="category" x-model="formData.category" class="w-full border p-2 rounded" required>
                     <option value="">Please select</option>
+                    <option value="Administrative & Office Support">Administrative & Office Support</option>
+                    <option value="Accounting & Finance">Accounting & Finance</option>
+                    <option value="Customer Service">Customer Service</option>
+                    <option value="Education & Training">Education & Training</option>
+                    <option value="Healthcare & Medical">Healthcare & Medical</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Marketing & Communications">Marketing & Communications</option>
+                    <option value="Sales & Business Development">Sales & Business Development</option>
+                    <option value="Skilled Trades & Construction">Skilled Trades & Construction</option>
                     <option value="Engineering">Engineering</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Marketing">Marketing</option>
+                    <option value="Creative & Design">Creative & Design</option>
+                    <option value="Manufacturing & Production">Manufacturing & Production</option>
+                    <option value="Transportation & Logistics">Transportation & Logistics</option>
+                    <option value="Hospitality & Tourism">Hospitality & Tourism</option>
+                    <option value="Science & Research">Science & Research</option>
+                    <option value="Government & Public Sector">Government & Public Sector</option>
                 </select>
 
                 @error('category')
