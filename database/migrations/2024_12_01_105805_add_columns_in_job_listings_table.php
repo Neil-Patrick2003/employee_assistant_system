@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('status')->default('Active'); // Add the new column here
-
+        Schema::table('job_listings', function (Blueprint $table) {
+            $table->string('status')->default('Active');
         });
     }
 
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('status')->default('Active'); // Add the new column here
+        Schema::table('job_listings', function (Blueprint $table) {
+            $table->dropColumn('column_name'); // Replace this with the original column type if you want to reverse the migration
 
         });
     }
