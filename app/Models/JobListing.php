@@ -43,4 +43,28 @@ class JobListing extends Model
                 fn (Builder $query) => $query->whereNull('user_id'),
             );
     }
+
+    public static function getCategoriesOptions()
+    {
+       return [
+            "Administrative & Office Support",
+            "Accounting & Finance",
+            "Customer Service",
+            "Education & Training",
+            "Healthcare & Medical",
+            "Human Resources",
+            "Information Technology",
+            "Legal",
+            "Marketing & Communications",
+            "Sales & Business Development",
+            "Skilled Trades & Construction",
+            "Engineering",
+            "Creative & Design",
+            "Manufacturing & Production",
+            "Transportation & Logistics",
+            "Hospitality & Tourism",
+            "Science & Research",
+            "Government & Public Sector",
+        ];
+    }
 }

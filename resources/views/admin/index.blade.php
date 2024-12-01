@@ -45,10 +45,10 @@
 
             <div  class="bg-gray-100 px-2.5 py-5 rounded-md space-y-5">
                 <x-bar-chart
-                    :labels="$registeredJobSeekersCountPerDay['labels']"
-                    :data="$registeredJobSeekersCountPerDay['data']"
-                    chart-label="New Jobs Seekers Per Day"
-                    chart-title="Job Seeker Registration Trends"
+                    :labels="$submittedApplicationsCountPerDay['labels']"
+                    :data="$submittedApplicationsCountPerDay['data']"
+                    chart-label="Submitted Application Per Day"
+                    chart-title="Application Trends"
                     id="newApplicationsChart"
                 />
             </div>
