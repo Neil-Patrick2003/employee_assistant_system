@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<x-landing-page-layout>
+    hi
+
+</x-landing>
+
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -339,9 +345,9 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 
-    <div
+        <div
         class="mx-auto max-w-2xl divide-y divide-gray-900/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:pb-32">
         <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Frequently asked questions
         </h2>
@@ -358,7 +364,7 @@
 
             <!-- More questions... -->
         </dl>
-    </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -453,4 +459,4 @@
 
 </body>
 
-</html>
+</html> --}}

@@ -29,6 +29,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/job_listings', function () {
+    return view('job_listings');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/about', function () {
+    return view('about  ');
+});
+
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -105,12 +117,8 @@ Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'st
 Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 
 
-
-
-
-
 //admin
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/manage-users', [UserController::class, 'index']);
 Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
 Route::get('/admin/announcements', [AnnouncementController::class, 'index']);
