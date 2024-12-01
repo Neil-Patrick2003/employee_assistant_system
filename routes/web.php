@@ -121,7 +121,7 @@ Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/manage-users', [UserController::class, 'index']);
 Route::get('/admin/manage-jobs', [AdminJobController::class, 'index']);
-Route::get('/admin/announcements', [AnnouncementController::class, 'index']);
+Route::resource('/admin/announcements', AnnouncementController::class);
 Route::get('/admin/reports', [ReportController::class, 'index']);
 Route::get('/admin/feedbacks', [FeedbackController::class, 'index']);
 require __DIR__ . '/auth.php';
