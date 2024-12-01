@@ -144,9 +144,10 @@
                             <div class="mt-2">
                                 <select id="category" name="category"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
-                                    <option>Category</option>
-                                    <option>category 1</option>
-                                    <option>category 2</option>
+                                    <option value="">Please select</option>
+                                    @foreach(\App\Models\JobListing::getCategoriesOptions() as $category)
+                                        <option value="{{$category}}">{{$category}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             @error('category')
