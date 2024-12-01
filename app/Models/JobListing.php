@@ -8,29 +8,33 @@ use Illuminate\Support\Facades\Auth;
 
 class JobListing extends Model
 {
-    protected $fillable = [
-        'company_id',
-        'title',
-        'description',
-        'salary',
-        'location',
-        'work_policy',
-        'scope',
-        'requierd_work_experience',
-        'minimum_age',
-        'maximum_age',
-        'category'
-    ];
+    protected $fillable
+        = [
+            'company_id',
+            'title',
+            'description',
+            'salary',
+            'location',
+            'work_policy',
+            'scope',
+            'requierd_work_experience',
+            'minimum_age',
+            'maximum_age',
+            'category'
+        ];
 
-    public function company(){
+    public function company()
+    {
         return $this->belongsTo(Company::class, 'company_id');
     }
 
-    public function job_skills(){
+    public function job_skills()
+    {
         return $this->hasMany(JobSkill::class);
     }
 
-    public function job_education(){
+    public function job_education()
+    {
         return $this->hasOne(JobEducation::class);
     }
 
@@ -39,14 +43,51 @@ class JobListing extends Model
         return $this->hasOne(Application::class, 'job_id', 'id')
             ->when(
                 Auth::check(),
-                fn (Builder $query) => $query->where('user_id', Auth::id()),
-                fn (Builder $query) => $query->whereNull('user_id'),
+                fn(Builder $query) => $query->where('user_id', Auth::id()),
+                fn(Builder $query) => $query->whereNull('user_id'),
             );
+    }
+
+    public function scopeMatchUserPreference(
+        Builder $builder,
+        User $user
+    ): Builder {
+        UserJobPreferences::firstOrCreate(['user_id' => $user->id]);
+
+        $user->loadMissing(['job_preference']);
+
+        return $builder->where(function (Builder $query) use ($user) {
+            $query
+                ->where(function (Builder $subQuery) use ($user) {
+                    $subQuery->where('minimum_age', '<=', $user->age)
+                        ->where('maximum_age', '>=', $user->age);
+                })
+                ->when($user->job_preference->category,
+                    function (Builder $subQuery) use ($user) {
+                        $subQuery->orWhere('category', $user->job_preference->category);
+                })
+                ->when($user->job_preference->scope,
+                    function (Builder $subQuery) use ($user) {
+                        $subQuery->orWhere('work_policy', $user->job_preference->scope);
+                    })
+                ->when($user->job_preference->work_policy,
+                    function (Builder $subQuery) use ($user) {
+                        $subQuery->orWhere('work_policy', $user->job_preference->work_policy);
+                    })
+                ->when($user->job_preference->work_experience,
+                    function (Builder $subQuery) use ($user) {
+                        $subQuery->orWhere('requierd_work_experience', '<=', $user->job_preference->work_experience);
+                    })
+                ->when($user->job_preference->min_salary,
+                    function (Builder $subQuery) use ($user) {
+                        $subQuery->orWhere('salary', '>=', $user->job_preference->min_salary);
+                    });
+        });
     }
 
     public static function getCategoriesOptions(): array
     {
-       return [
+        return [
             "Administrative & Office Support",
             "Accounting & Finance",
             "Customer Service",
@@ -68,7 +109,8 @@ class JobListing extends Model
         ];
     }
 
-    public static function getLocationOptions () {
+    public static function getLocationOptions()
+    {
         return [
             "Agoncillo",
             "Alitagtag",
