@@ -18,7 +18,7 @@
                     <h2 class="text-lg font-semibold text-gray-900">Compony Information</h2>
                     <p class="mt-1 text-sm text-gray-600">Please complete the form to continue</p>
 
-                    <div class="mt-10 "col-span-full w-full">
+                    <div class="mt-10 col-span-full w-full">
                         <div class="sm:col-span-4">
                             <label for="name" class="block text-sm font-medium text-gray-900">Company Name</label>
                             <div class="mt-2">

@@ -38,7 +38,27 @@
             </div>
         </div>
     </div>
+    <section class="h-screen w-full flex items-center justify-center">
+        <div class="w-full h-full flex">
+            <div
+                class="w-full md:w-full h-full flex flex-col items-center justify-center bg-white dark:bg-white px-4 py-6">
+                <div class="text-center mb-6">
+                    <h4 class="mt-1 text-lg font-semibold">
+                        Login to your Account
+                    </h4>
+                    <p class="text-sm">Embark on an unparalleled job-seeking adventure with PESO</p>
+                </div>             
+                <div class="w-full max-w-md mx-auto">
+                    {{ $slot }}
+                </div>
+            </div>
 
+            <!-- Right column -->
+            <div class="w-full md:w-6/12 h-full flex items-center justify-center bg-[#0F172A] rounded-b-lg md:rounded-e-lg md:rounded-bl-none py-6">
+                <img id="loginImage" src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
+            </div>
+        </div>
+    </section>
 </body>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -111,7 +111,45 @@
         @endforeach
     </div>
 
+<<<<<<< HEAD
+    <!-- Combo Box-->
+    <div class="mt-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <span class="text-sm text-gray-600">Page 1 of 1</span>
+            <label for="itemsPerPage" class="text-sm text-gray-600">Items per page:</label>
+            <select id="itemsPerPage" class="border border-gray-300 rounded-lg text-sm px-3 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+    </div>
+=======
 
+    <div class="border-b border-b-gray-900/10 lg:border-t lg:border-t-gray-900/5">
+        <dl class="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:px-2 xl:px-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-t border-gray-900/5 px-4 py-10 sm:px-6 lg:border-t-0 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Revenue</dt>
+            <dd class="text-xs font-medium text-gray-700">+4.75%</dd>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">$405,091.00</dd>
+          </div>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-t border-gray-900/5 px-4 py-10 sm:border-l sm:px-6 lg:border-t-0 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Overdue invoices</dt>
+            <dd class="text-xs font-medium text-rose-600">+54.02%</dd>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">$12,787.00</dd>
+          </div>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-t border-gray-900/5 px-4 py-10 sm:px-6 lg:border-l lg:border-t-0 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Outstanding invoices</dt>
+            <dd class="text-xs font-medium text-gray-700">-1.39%</dd>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">$245,988.00</dd>
+          </div>
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-t border-gray-900/5 px-4 py-10 sm:border-l sm:px-6 lg:border-t-0 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Expenses</dt>
+            <dd class="text-xs font-medium text-rose-600">+10.18%</dd>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">$30,156.00</dd>
+          </div>
+        </dl>
+      </div>
 
 
 
