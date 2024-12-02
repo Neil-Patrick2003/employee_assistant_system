@@ -32,4 +32,5 @@
             </div>
         </div>
     </div>
+    <p>test</p>
 </x-app-layout>

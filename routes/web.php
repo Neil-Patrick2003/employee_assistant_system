@@ -34,6 +34,21 @@ Route::get('/', function () {
 
 Route::get('/job_listings', [LandingController::class, 'job_listing']);
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact
+    ');
+});
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/contact', function () {
     return view('contact');
 });
