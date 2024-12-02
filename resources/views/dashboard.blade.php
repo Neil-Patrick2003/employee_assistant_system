@@ -1,6 +1,5 @@
 <x-app-layout>
 
-
     <div class="bg-white h-full container  mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="flex flex-col gap-x-2 sm:flex-col md:flex-col lg:flex-row xl:flex-row text-gray-900">
@@ -16,7 +15,7 @@
                             <div
                                 class="inline-block bg-white border rounded-xl w-full sm:w-11/12 md:w-96 lg:w-80 xl:w-96 min-w-[280px]">
                                 <!-- Card Content -->
-                                <div class="flex flex-col h-full">
+                                <div class="flex flex-col justify-between h-full">
                                     <!-- Job Header -->
                                     <div class="flex mt-4 p-4 gap-2 text-gray-900">
                                         <img src="{{ asset('storage/' . $matched_job->company->logo_url) }}"
@@ -46,14 +45,85 @@
                                     </div>
                                     <!-- Buttons -->
                                     <div class="flex px-2 gap-x-2 mb-2 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
-                                        <a href=""
+                                        <a href="/jobs/{{ $matched_job->id }}"
                                             class="sm:w-full md:w-1/3 lg:w-1/3 xl:w-1/3 text-sm py-1 px-2 border rounded-full flex justify-center text-indigo-600 hover:bg-indigo-100">
                                             Details
                                         </a>
-                                        <a href=""
-                                            class="sm:w-full md:w-2/3 lg:w-2/3 xl:w-2/3 text-sm py-1 px-2 border bg-slate-900 text-white rounded-full flex justify-center hover:bg-slate-600">
-                                            Apply Now
-                                        </a>
+                                        <form action="/applicant/applications" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $matched_job->id }}" name="job_id">
+                                            <div x-data="{ modalIsOpen: false }">
+                                                @if ($matched_job->my_application)
+                                                    <p>Applied last {{ $matched_job->my_application->created_at }}</p>
+                                                @else
+                                                    <button @click="modalIsOpen = true" type="button"
+                                                        class="cursor-pointer whitespace-nowrap rounded-full  bg-black px-4 py-1.5 text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0">
+                                                        Apply
+                                                        Now
+                                                    </button>
+                                                @endif
+                                                <div x-cloak x-show="modalIsOpen" x-transition.opacity.duration.200ms
+                                                    x-trap.inert.noscroll="modalIsOpen"
+                                                    @keydown.esc.window="modalIsOpen = false"
+                                                    @click.self="modalIsOpen = false"
+                                                    class="fixed inset-0 z-30 flex items-end justify-center bg-black/20 p-4 pb-8 backdrop-blur-SM sm:items-center lg:p-8"
+                                                    role="dialog" aria-modal="true"
+                                                    aria-labelledby="defaultModalTitle">
+                                                    <!-- Modal Dialog -->
+                                                    <div x-show="modalIsOpen"
+                                                        x-transition:enter="transition ease-out duration-200 delay-100 motion-reduce:transition-opacity"
+                                                        x-transition:enter-start="opacity-0 scale-50"
+                                                        x-transition:enter-end="opacity-100 scale-100"
+                                                        class="flex max-w-lg flex-col gap-4 overflow-hidden rounded-md bg-white text-neutral-600 dark:bg-white dark:text-neutral-900">
+                                                        <!-- Dialog Header -->
+                                                        <div
+                                                            class="flex items-center justify-between bg-neutral-50 p-4 dark:bg-neutral-100">
+                                                            <h3 id="defaultModalTitle"
+                                                                class="font-semibold tracking-wide text-neutral-900 dark:text-black">
+                                                                Please
+                                                                Select Resume to Procced
+                                                                Application
+                                                            </h3>
+                                                            <button @click="modalIsOpen = false"
+                                                                aria-label="close modal">
+                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 24 24" aria-hidden="true"
+                                                                    stroke="currentColor" fill="none"
+                                                                    stroke-width="1.4" class="w-5 h-4">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        d="M6 18L18 6M6 6l12 12" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+
+                                                        <!-- Dialog Body -->
+                                                        <div class="px-4 py-8">
+                                                            <input type="hidden" value="{{ $matched_job->id }}">
+                                                            <select name="resume_id" required
+                                                                class="w-full py-2 px-3 border border-neutral-300 rounded-md text-sm text-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition ease-in-out ">
+                                                                @foreach ($resumes as $resume)
+                                                                    <option value="{{ $resume->id }}">
+                                                                        {{ $resume->template }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <!-- Dialog Footer -->
+                                                        <div
+                                                            class="flex flex-col-reverse justify-between gap-2 bg-neutral-50 p-4 dark:bg-neutral-100 sm:flex-row sm:items-center md:justify-end">
+                                                            <button @click="modalIsOpen = false" type="button"
+                                                                class="cursor-pointer whitespace-nowrap rounded-md px-4 py-2 text-center text-sm font-medium tracking-wide text-neutral-600 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 dark:text-neutral-900 dark:focus-visible:outline-black">
+                                                                Cancel
+                                                            </button>
+                                                            <button @click="modalIsOpen = false" type="submit"
+                                                                class="cursor-pointer whitespace-nowrap rounded-md bg-black px-4 py-2 text-center text-sm font-medium tracking-wide text-neutral-100 transition hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 dark:bg-black dark:text-white dark:focus-visible:outline-black">
+                                                                Apply
+                                                                Now
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
 
                                 </div>
@@ -113,9 +183,9 @@
                         <div class="mt-6 p-2 border rounded">
                             <ul></ul>
                             <div>
-                                <h3 class="text-base font-semibold text-gray-900 mb-2">{{$announcement->title}}</h3>
+                                <h3 class="text-base font-semibold text-gray-900 mb-2">{{ $announcement->title }}</h3>
 
-                                <p class="text-sm font-light emibold text-gray-900">{{$announcement->content}}</p>
+                                <p class="text-sm font-light emibold text-gray-900">{{ $announcement->content }}</p>
                             </div>
 
                         </div>

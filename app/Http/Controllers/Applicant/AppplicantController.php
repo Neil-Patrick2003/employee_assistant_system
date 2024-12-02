@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Applicant;
 
-use App\Models\Announcement;
-use App\Models\Application;
+use App\Models\Resume;
 use App\Models\JobListing;
-use App\Models\UserEducation;
+use App\Models\Application;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Models\UserEducation;
 use App\Models\UserJobPreferences;
 use Illuminate\Routing\Controller;
 use Illuminate\Contracts\Queue\Job;
@@ -16,6 +17,15 @@ class AppplicantController extends Controller
 {
     public function index()
     {
+
+        $resumes = Resume::with('user')
+            ->where('user_id', '=', Auth::id())
+            ->get();
+
+        $resumes = Resume::with('user')
+            ->where('user_id', '=', Auth::id())
+            ->get();
+            
         $announcements = Announcement::where('status', '=', 'Active')
         ->latest()->take(5)->get(); // Limit to the latest 5
         
@@ -32,7 +42,10 @@ class AppplicantController extends Controller
         return view('dashboard', [
             'applications' => $applications,
             'matched_jobs' => $matched_jobs,
-            'announcements' => $announcements
+            'announcements' => $announcements,
+            'resumes' => $resumes,
+
+
         ]);
     }
 
