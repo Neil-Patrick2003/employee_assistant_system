@@ -15,6 +15,7 @@ class AppplicantController extends Controller
 {
     public function index()
     {
+        
         $applications = Application::where('user_id', Auth::id())
             ->with(['job.company', 'resume'])
             ->get();
@@ -23,6 +24,7 @@ class AppplicantController extends Controller
             ->with(['company', 'my_application'])
             ->doesntHave('my_application')
             ->get();
+
 
         return view('dashboard', [
             'applications' => $applications,
