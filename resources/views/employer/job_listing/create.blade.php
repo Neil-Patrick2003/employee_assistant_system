@@ -45,26 +45,26 @@
 
 
     <div
-        class="mx-auto max-w-7xl sm:px-6 px-2 py-6  lg:px-8 mt-4 bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+        class="mx-auto max-w-7xl  mt-4 bg-white ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <form action="/employer/jobs/create" method="POST">
             @csrf
-            <div class="space-y-12">
-                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
-                    <div>
-                        <h2 class="text-base/7 font-semibold text-gray-900">Job Details</h2>
-                        <p class="mt-1 text-sm/6 text-gray-600">This information will be displayed publicly so be
+            <div class="space-y-12 ">
+                <div class=" grid grid-cols-1 gap-x-8 gap-y-10  my-4 md:grid-cols-3">
+                    <div class="bg-slate-900 h-full p-4">
+                        <h2 class="text-base/7 font-semibold text-gray-100">Job Details</h2>
+                        <p class="mt-1 text-sm/6 text-gray-100">This information will be displayed publicly so be
                             careful
                             what you share.</p>
                     </div>
 
-                    <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+                    <div class="grid max-w-2xl grid-cols-1 p-4 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="col-span-full">
                             <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
                             <div class="mt-2">
                                 <div
                                     class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                                     <input type="text" name="title" id="title"
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
+                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
                                 </div>
                                 @error('title')
                                     <div class="text-danger">
@@ -79,7 +79,7 @@
                                 class="block text-sm/6 font-medium text-gray-900">Description</label>
                             <div class="mt-2">
                                 <textarea id="description" name="description" rows="3"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                                    class="block w-full rounded-md border-0 pl-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
                             </div>
                             <p class="mt-3 text-sm/6 text-gray-600">Write a few description about Jobs.</p>
                             @error('description')
@@ -112,7 +112,7 @@
                                     class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
 
                                     <select id="location" name="location"
-                                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                            class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
                                         <option value="">Please select location</option>
                                         @foreach(\App\Models\JobListing::getLocationOptions() as $location)
                                             <option value="{{$location}}">{{$location}}</option>
@@ -165,8 +165,8 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
-                    <div>
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10  pb-12 md:grid-cols-3">
+                    <div class="bg-slate-900 h-full p-4">
                         <h2 class="text-base/7 font-semibold text-gray-900">Background Requirements</h2>
                         <p class="mt-1 text-sm/6 text-gray-600">Use a permanent address where you can receive mail.</p>
                     </div>
