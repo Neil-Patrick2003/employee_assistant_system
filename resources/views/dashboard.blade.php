@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="mx-auto mb-2 max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto mb-2 max-w-9xl sm:px-6 lg:px-8">
         <div class=" flex-col h-36 font-sans text-white p-2 md:p-4 lg:p-6 bg-slate-900">
-        <p class="text-md lg:text-lg">Hello {{ Auth::check() ? Auth::user()->name : 'Guest' }}</p>
-        <h1 class="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-rubik">Find Your Great Job</h1>
-    </div>
+            <p class="text-md lg:text-lg">Hello {{ Auth::check() ? Auth::user()->name : 'Guest' }}</p>
+            <h1 class="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-rubik">Find Your Great Job</h1>
+        </div>
     </div>
 
     <div class="bg-white h-full container  mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +134,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div>
+                <div class="mt-2">
                     <h1 class="text-xl font-semibold mb-4">My Recent Applications</h1>
                     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($applications as $application)
