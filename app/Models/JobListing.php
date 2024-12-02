@@ -152,4 +152,17 @@ class JobListing extends Model
         ];
     }
 
+    public function getInitialsAttribute()
+    {
+        // Split the company name by spaces and grab the first letter of each word
+        $words = explode(' ', $this->title);
+
+        $initials = '';
+        foreach ($words as $word) {
+            $initials .= strtoupper($word[0]); // Concatenate the first letter in uppercase
+        }
+
+        return $initials; // Return the initials
+    }
+
 }
