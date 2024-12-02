@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="font-rubik bg-white">
+<body class="font-rubik bg-indigo-50">
     <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 

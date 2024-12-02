@@ -1,23 +1,41 @@
 <x-employer-layout>
+    <div class="flex gap-4  mb-6">
+        <div class="w-1/4">
+            <div
+                class="flex rounded-3xl flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-4 sm:px-6 xl:px-8">
+                <dt class="text-sm/6 font-medium text-gray-500">All Applications</dt>
+                <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $all_count }}
+                </dd>
+            </div>
+        </div>
+        <div class="w-1/4 ">
+            <div
+                class="flex rounded-3xl flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-4 sm:px-6 xl:px-8">
+                <dt class="text-sm/6 font-medium text-gray-500">Submitted</dt>
+                <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $submitted_count }}
+                </dd>
+            </div>
+        </div>
 
-    <dl class="mx-auto border shadow-sm mb-4 grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
-            <dt class="text-sm/6 font-medium text-gray-500">All Applications</dt>
-            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $all_count }}</dd>
+        <div class="w-1/4">
+            <div
+                class="flex rounded-3xl flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-4 sm:px-6 xl:px-8">
+                <dt class="text-sm/6 font-medium text-gray-500">Screening</dt>
+                <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $screening_count }}
+                </dd>
+            </div>
         </div>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
-            <dt class="text-sm/6 font-medium text-gray-500">Pending</dt>
-            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $submitted_count }}</dd>
+        <div class="w-1/4">
+            <div
+                class="flex rounded-3xl flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-4 sm:px-6 xl:px-8">
+                <dt class="text-sm/6 font-medium text-gray-500">Hired</dt>
+                <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $hired_count }}
+                </dd>
+            </div>
         </div>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
-            <dt class="text-sm/6 font-medium text-gray-500">Under Screening</dt>
-            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $screening_count }}</dd>
-        </div>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
-            <dt class="text-sm/6 font-medium text-gray-500">Hired</dt>
-            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $hired_count }}</dd>
-        </div>
-    </dl>
+
+    </div>
+
 
 
 
@@ -55,11 +73,11 @@
     @endif
 
     {{-- table for applicant list --}}
-    <div class="px-4 sm:px-6 lg:px-8 border shadow-sm rounded-xl ">
-        <div class="mt-8 flow-root">
-            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
+    <div class="px-4 sm:px-6 lg:px-8 border bg-white shadow-sm rounded-3xl ">
+        <div class="mt-8 bg-white flow-root">
+            <div class="-mx-4 -my-2 bg-white overflow-x-auto sm:-mx-6 lg:-mx-8 ">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <table class="min-w-full divide-y divide-gray-300">
+                    <table class="min-w-full bg-white divide-y divide-gray-300">
                         <thead>
                             <tr>
                                 <th scope="col"

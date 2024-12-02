@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 
-<body class="h-full">
+<body class="bg-indigo-50">
 
     <div>
         <div id="sidebar" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
