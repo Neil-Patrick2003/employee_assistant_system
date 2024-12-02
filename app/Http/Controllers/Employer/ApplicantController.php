@@ -21,12 +21,25 @@ class ApplicantController extends Controller
             ->with(['job.company', 'resume', 'user'])
             ->get();
 
+            $all_count = $applications->count();
+            $submitted_count = $applications->where('status', '=', 'Submitted')->count();
+            $screening_count = $applications->where('status', '=', 'Screening')->count();
+            $hired_count = $applications->where('status', '=', 'Hired')->count();
 
-        return view('employer.applications.index', ['applications' => $applications]);
+
+        return view('employer.applications.index',
+            [
+                'applications' => $applications,
+                'all_count' => $all_count,
+                'submitted_count' => $submitted_count,
+                'screening_count' => $screening_count,
+                'hired_count' => $hired_count
+            ]);
 
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $application = Application::find($id);
 
         $application->status = $request->status;
@@ -36,12 +49,11 @@ class ApplicantController extends Controller
         Notification::create([
             'user_id' => $application->user_id,
             'application_id' => $application->id,
-            'message' => 'Your application has been marked as ' . $request->status
+            'message' => 'Your application has been marked as ' . $request->status,
         ]);
 
         return redirect()->back()->with('status', 'Application status updated successfully!');
 
     }
-
 
 }

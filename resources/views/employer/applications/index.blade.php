@@ -1,12 +1,29 @@
 <x-employer-layout>
 
-    <div class="sm:flex-auto pb-4">
-        <h1 class="text-base font-semibold text-gray-900">My Applications</h1>
-    </div>
+    <dl class="mx-auto border shadow-sm mb-4 grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">All Applications</dt>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $all_count }}</dd>
+        </div>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Pending</dt>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $submitted_count }}</dd>
+        </div>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Under Screening</dt>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $screening_count }}</dd>
+        </div>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
+            <dt class="text-sm/6 font-medium text-gray-500">Hired</dt>
+            <dd class="w-full flex-none text-3xl/10 font-medium tracking-tight text-gray-900">{{ $hired_count }}</dd>
+        </div>
+    </dl>
+
+
 
     {{-- sucess message --}}
     @if (session('status'))
-        <div class="rounded-md bg-green-50 p-4">
+        <div id="notification" class="rounded-md bg-green-50 p-4">
             <div class="flex">
                 <div class="shrink-0">
                     <svg class="size-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
@@ -22,7 +39,8 @@
                 <div class="ml-auto pl-3">
                     <div class="-mx-1.5 -my-1.5">
                         <button type="button"
-                            class="inline-flex rounded-md bg-green-50 p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
+                            class="inline-flex rounded-md bg-green-50 p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50"
+                            onclick="document.getElementById('notification').style.display='none'">
                             <span class="sr-only">Dismiss</span>
                             <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
                                 data-slot="icon">
@@ -35,8 +53,9 @@
             </div>
         </div>
     @endif
+
     {{-- table for applicant list --}}
-    <div class="px-4 sm:px-6 lg:px-8 border rounded-xl ">
+    <div class="px-4 sm:px-6 lg:px-8 border shadow-sm rounded-xl ">
         <div class="mt-8 flow-root">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -74,8 +93,9 @@
                                         <div class="flex items-center">
                                             <div class="size-11 shrink-0">
                                                 <img class="size-11 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                    alt="">
+                                                    src="{{ $application->user->photo_url ? asset('storage/' . $application->user->photo_url) : 'https://www.pngmart.com/files/23/Profile-PNG-Photo.png' }}"
+                                                    alt="User Photo">
+
                                             </div>
                                             <div class="ml-4">
                                                 <div class="font-medium text-gray-900">{{ $application->user->name }}
@@ -93,7 +113,7 @@
                                             @if ($application->status == 'Submitted')
                                                 <span
                                                     class="inline-flex items-center rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">{{ $application->status }}</span>
-                                            @elseif ($application->status == 'Accepted')
+                                            @elseif ($application->status == 'Hired')
                                                 <span
                                                     class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">{{ $application->status }}</span>
                                             @else
@@ -158,7 +178,8 @@
                                                 </form>
                                             </div>
                                         @else
-                                            <div class="flex justify-center items-center text-gray-500 w-full">---</div>
+                                            <div class="flex justify-center items-center text-gray-500 w-full">---
+                                            </div>
                                         @endif
                                     </td>
 
