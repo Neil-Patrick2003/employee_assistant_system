@@ -109,7 +109,7 @@ Route::post('/applicant/{job}/appy', [ApplicationController::class, 'store']);
 Route::post('/applicant/profile/add-education', [UserEducationController::class, 'store']);
 Route::get('/applicant/applications', [ApplicationController::class, 'index'])->name('applicant.applications.index');
 Route::post('/applicant/applications', [ApplicationController::class, 'store']);
-
+Route::patch('/update/photo', [ AppplicantController::class, 'updateProfilePhoto']);
 
 
 

@@ -88,17 +88,19 @@
                                         <a href="/resumes/${{ $application->resume_id }}">View Resume
                                         </a>
                                     </td>
-                                    <td class   ="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                        @if ($application->status == 'Submitted')
-                                            <span
-                                                class="inline-flex items-center rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">{{ $application->status }}</span>
-                                        @elseif ($application->status == 'Accepted')
-                                            <span
-                                                class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">{{ $application->status }}</span>
-                                        @else
-                                            <span
-                                                class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">{{ $application->status }}</span>
-                                        @endif
+                                    <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
+                                        <center>
+                                            @if ($application->status == 'Submitted')
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">{{ $application->status }}</span>
+                                            @elseif ($application->status == 'Accepted')
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">{{ $application->status }}</span>
+                                            @else
+                                                <span
+                                                    class="inline-flex items-center rounded-md bg-red-100 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">{{ $application->status }}</span>
+                                            @endif
+                                        </center>
                                     </td>
                                     <td>
                                         <div class="ml-4">
@@ -108,66 +110,60 @@
                                         </div>
                                     </td>
                                     <td
-                                        class="flex whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 gap-x-2">
+                                        class="flex whitespace-nowrap py-5 pl-3 pr-4 text-sm font-medium sm:pr-0 gap-x-2">
                                         @if ($application->status == 'Submitted')
-                                            <div>
+                                            <div class="flex w-full gap-2">
                                                 <form action="/employer/applications/{{ $application->id }}"
-                                                    method="POST">
+                                                    method="POST" class="w-1/2">
                                                     @csrf
                                                     @method('Patch')
                                                     <input type="hidden" name="status" value="Screening">
                                                     <button type="submit"
-                                                        class="px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
+                                                        class="w-full px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
                                                         For Screening
                                                     </button>
                                                 </form>
-                                            </div>
-                                            <div>
                                                 <form action="/employer/applications/{{ $application->id }}"
-                                                    method="POST">
+                                                    method="POST" class="w-1/2">
                                                     @csrf
                                                     @method('Patch')
                                                     <input type="hidden" name="status" value="Rejected">
                                                     <button type="submit"
-                                                        class="px-4 py-2 bg-red-600 rounded-full text-neutral-100 hover:bg-red-700 transition duration-300 ease-in-out hover:text-white">
+                                                        class="w-full px-4 py-2 bg-red-600 rounded-full text-neutral-100 hover:bg-red-700 transition duration-300 ease-in-out hover:text-white">
                                                         Reject
                                                     </button>
                                                 </form>
                                             </div>
                                         @elseif ($application->status == 'Screening')
-                                            <div>
+                                            <div class="flex w-full gap-2">
                                                 <form action="/employer/applications/{{ $application->id }}"
-                                                    method="POST">
+                                                    method="POST" class="w-1/2">
                                                     @csrf
                                                     @method('Patch')
                                                     <input type="hidden" name="status" value="Hired">
                                                     <button type="submit"
-                                                        class="px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
+                                                        class="w-full px-4 py-2 bg-green-600 rounded-full text-neutral-100 hover:bg-green-700 transition duration-300 ease-in-out hover:text-white">
                                                         Accept
                                                     </button>
                                                 </form>
-                                            </div>
-                                            <div>
                                                 <form action="/employer/applications/{{ $application->id }}"
-                                                    method="POST">
+                                                    method="POST" class="w-1/2">
                                                     @csrf
                                                     @method('Patch')
                                                     <input type="hidden" name="status" value="Rejected">
                                                     <button type="submit"
-                                                        class="px-4 py-2 bg-red-600 rounded-full text-neutral-100 hover:bg-red-700 transition duration-300 ease-in-out hover:text-white">
+                                                        class="w-full px-4 py-2 bg-red-600 rounded-full text-neutral-100 hover:bg-red-700 transition duration-300 ease-in-out hover:text-white">
                                                         Reject
                                                     </button>
                                                 </form>
                                             </div>
-                                        
                                         @else
-                                        <div>----   </div>
-                                            
+                                            <div class="flex justify-center items-center text-gray-500 w-full">---</div>
                                         @endif
-                            
+                                    </td>
 
-                            </td>
-                            </tr>
+
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

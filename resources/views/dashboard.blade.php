@@ -1,16 +1,14 @@
 <x-app-layout>
-    <div class="mx-auto mb-2 max-w-9xl sm:px-6 lg:px-8">
-        <div class=" flex-col h-36 font-sans text-white p-2 md:p-4 lg:p-6 bg-slate-900">
-            <p class="text-md lg:text-lg">Hello {{ Auth::check() ? Auth::user()->name : 'Guest' }}</p>
-            <h1 class="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-rubik">Find Your Great Job</h1>
-        </div>
-    </div>
+    
 
     <div class="bg-white h-full container  mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="flex flex-col gap-x-2 sm:flex-col md:flex-col lg:flex-row xl:flex-row text-gray-900">
             <div class="w-full  lg:w-4/5 ">
-
+                <div class=" flex-col h-36 font-sans text-white p-2 md:p-4 lg:p-6 bg-slate-900">
+                    <p class="text-md lg:text-lg">Hello {{ Auth::check() ? Auth::user()->name : 'Guest' }}</p>
+                    <h1 class="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-rubik">Find Your Great Job</h1>
+                </div>
                 <div class="w-full overflow-x-auto bg-white">
                     <h1 class="text-xl font-semibold mb-4">Recommended Jobs</h1>
                     <div class="flex gap-4 overflow-x-auto">
