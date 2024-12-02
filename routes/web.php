@@ -105,6 +105,14 @@ Route::post('/applicant/applications', [ApplicationController::class, 'store']);
 //employer job
 
 Route::get('/employer/jobs', [JobListingController::class, 'index']);
+Route::get('/employer/jobs/edit/{job}', [JobListingController::class, 'edit']);
+Route::patch('/employer/jobs/update/{job}', [JobListingController::class, 'update']);
+Route::delete('/employer/jobs/skill/delete', [JobListingController::class, 'delete']);
+
+
+
+
+
 Route::get('/employer/applications', [EmployerApplicantController::class, 'index']);
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
