@@ -20,7 +20,7 @@
 </head>
 
 <body class="font-rubik bg-white">
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 
         <main class="bg-white">

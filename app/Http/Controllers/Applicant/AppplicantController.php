@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Applicant;
 
+use App\Models\Announcement;
 use App\Models\Application;
 use App\Models\JobListing;
 use App\Models\UserEducation;
@@ -15,6 +16,8 @@ class AppplicantController extends Controller
 {
     public function index()
     {
+        $announcements = Announcement::where('status', '=', 'Active')
+        ->latest()->take(5)->get(); // Limit to the latest 5
         
         $applications = Application::where('user_id', Auth::id())
             ->with(['job.company', 'resume'])
@@ -28,7 +31,8 @@ class AppplicantController extends Controller
 
         return view('dashboard', [
             'applications' => $applications,
-            'matched_jobs' => $matched_jobs
+            'matched_jobs' => $matched_jobs,
+            'announcements' => $announcements
         ]);
     }
 
