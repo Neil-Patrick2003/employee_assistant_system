@@ -26,6 +26,7 @@ use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
+use App\Http\Controllers\Employer\EmployerReportController;
 use App\Http\Controllers\LandingController;
 
 Route::get('/', function () {
@@ -123,11 +124,6 @@ Route::get('/employer/jobs', [JobListingController::class, 'index']);
 Route::get('/employer/jobs/edit/{job}', [JobListingController::class, 'edit']);
 Route::patch('/employer/jobs/update/{job}', [JobListingController::class, 'update']);
 Route::delete('/employer/jobs/skill/delete', [JobListingController::class, 'delete']);
-
-
-
-
-
 Route::get('/employer/applications', [EmployerApplicantController::class, 'index']);
 Route::get('/employer/jobs/create', [JobListingController::class, 'create']);
 Route::post('/employer/jobs/create', [JobListingController::class, 'store']);
@@ -139,8 +135,9 @@ Route::post('/employer/profile/edit', [CompanyController::class, 'store']);
 //config
 Route::get('/employer/configurations', [ConfigurationController::class, 'index']);
 Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'store']);
-
 Route::get('/jobs', [JobController::class, 'index'])->name('explore');
+//report
+Route::get('/employer/reports', [EmployerReportController::class, 'index']);
 
 
 //admin

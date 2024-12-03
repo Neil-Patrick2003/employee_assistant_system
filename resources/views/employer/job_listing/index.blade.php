@@ -102,14 +102,14 @@
                                     <div
                                         class="pb-4 w-full flex flex-col gap-4 justify-center sm:w-auto sm:pr-4 sm:pt-0">
                                         <p class="text-xl text-slate-700 sm:text-right">P {{ $job->salary }}/month</p>
-                                        <div class="w-full flex justify-between gap-6 sm:justify-end">
-                                            <a class="w-full" href="">
+                                        {{-- <div class="w-full flex justify-between gap-6 sm:justify-end">
+                                            <a class="w-full" href="/employer/jobs/{{$job->id}}">
                                                 <button type="button"
                                                     class="px-5 py-3 font-medium text-neutral-100 bg-slate-900 flex justify-center items-center transition duration-300 ease-in-out rounded-full text-sm focus:outline-none disabled:opacity-75 disabled:cursor-not-allowed  border-slate-500 hover:bg-slate-600 whitespace-nowrap w-full hover:border-slate-500 focus:ring focus:ring-slate-900 active:scale-95">
                                                     View Details
                                                 </button>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
