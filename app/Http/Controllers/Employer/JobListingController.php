@@ -158,4 +158,5 @@ class JobListingController extends Controller
         return redirect()->back();
     }
 
+    
 }
