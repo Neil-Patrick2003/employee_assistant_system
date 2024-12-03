@@ -26,6 +26,7 @@ use App\Http\Controllers\Applicant\WorkExperienceController;
 use App\Http\Controllers\Admin\JobController as AdminJobController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Employer\ApplicantController as EmployerApplicantController;
+use App\Http\Controllers\Employer\EmployerController;
 use App\Http\Controllers\Employer\EmployerReportController;
 use App\Http\Controllers\LandingController;
 
@@ -95,9 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/applicant/preference', [JobPreferenceController::class, 'store']);
 });
 
-Route::get('/employer/dashboard', function () {
-    return view('employer/index');
-})->middleware(['auth', 'verified'])->name('EmployerDashboard');
+Route::get('/employer/dashboard', [EmployerController::class, 'index'])->middleware(['auth', 'verified'])->name('EmployerDashboard');
 
 
 
