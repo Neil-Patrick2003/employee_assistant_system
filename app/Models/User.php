@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -23,6 +24,9 @@ class User extends Authenticatable
         'age',
         'role',
         'password',
+        'job_title',
+        'bio',
+        'photo_url'
     ];
 
     /**
@@ -52,15 +56,36 @@ class User extends Authenticatable
         return $this->hasOne(Company::class, 'user_id');
     }
 
-    public function job_preference(){
-        return $this->has(UserJobPreferences::class);
-    }
-
     public function user_education(){
         return $this->has(UserEducation::class);
     }
 
+    public function educations(): HasMany
+    {
+        return $this->hasMany(UserEducation::class);
+    }
+
+    public function skills(): HasMany
+    {
+        return $this->hasMany(UserSkill::class);
+    }
+
+    public function work_experiences(): HasMany
+    {
+        return $this->hasMany(WorkExperience::class);
+    }
+
     public function user_skill(){
         return $this->hasMany(UserSkill::class);
+    }
+
+    public function resumes(): HasMany
+    {
+        return $this->hasMany(Resume::class);
+    }
+
+    public function job_preference()
+    {
+        return $this->hasOne(UserJobPreferences::class);
     }
 }

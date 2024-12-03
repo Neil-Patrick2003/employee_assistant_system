@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserEducation extends Model
 {
-    protected $fillable = [
-        'user_id',
-        'level',
-        'description'
-    ];
+
+    protected $table = 'user_educations';
+    protected $guarded = [];
 }

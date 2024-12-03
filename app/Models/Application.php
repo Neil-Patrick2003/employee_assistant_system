@@ -12,4 +12,19 @@ class Application extends Model
         'resume_id',
         'status',
     ];
+
+    public function resume()
+    {
+        return $this->belongsTo(Resume::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function job()
+    {
+        return $this->belongsTo(JobListing::class);
+    }
 }

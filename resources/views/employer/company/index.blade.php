@@ -4,7 +4,7 @@
             <!-- Company Logo Image -->
             <div class="mr-4">
                 <img
-                    src="{{ asset('images/company-logo.png') }}"
+                    src="{{ asset('storage/' . $company->logo_url) }}"
                     alt="Company Logo"
                     class="w-12 h-12 rounded-full object-cover"
                 >
