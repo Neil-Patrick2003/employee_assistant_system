@@ -47,7 +47,7 @@
     <div class="mt-2 overflow-hidden rounded-lg">
         @if ($company->jobs->isEmpty())
             <div class="flex justify-center mt-8 items-center">
-                <img src="{{ asset('storage/images/icon/empty-job.png') }}" alt="Notification Icon"
+                <img src="{{ asset('empty-job.png') }}" alt="Notification Icon"
                     class="max-w-96 max-h-96 object-contain">
             </div>
             <p class="w-1/2 text-2xl font-medium text-gray-900 mx-auto text-center">There is no Job post yet.</p>

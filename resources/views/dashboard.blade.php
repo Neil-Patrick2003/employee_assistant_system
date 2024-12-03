@@ -188,7 +188,7 @@
                     <ul>
                         @if ($announcements->isEmpty())
                             <div class="flex justify-center items-center">
-                                <img src="{{ asset('storage/images/icon/empty-announcement.png') }}" alt="Notification Icon"
+                                <img src="{{ asset('empty-announcement.png') }}" alt="Notification Icon"
                                     class="max-w-full max-h-24 object-contain">
                             </div>
                             <p class="w-1/2 text-xs font-light text-gray-900 mx-auto text-center">
@@ -215,7 +215,7 @@
                     <ul>
                         @if ($announcements->isEmpty())
                             <div class="flex justify-center items-center">
-                                <img src="{{ asset('storage/images/icon/empty-notif.jpg') }}" alt="Notification Icon"
+                                <img src="{{ asset('empty-notif.jpg') }}" alt="Notification Icon"
                                     class="max-w-full max-h-24 object-contain">
                             </div>
                             <p class="w-1/2 text-xs font-light text-gray-900 mx-auto text-center">
