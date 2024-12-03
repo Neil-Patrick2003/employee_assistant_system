@@ -20,8 +20,6 @@
         .transition-opacity {
             transition: opacity 0.2s ease-in-out;
         }
-
-
     </style>
 
 </head>

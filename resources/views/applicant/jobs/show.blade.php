@@ -1,9 +1,6 @@
 <x-app-layout>
 
-    <div aria-live="assertive" class="z-50 fixed inset-0 flex justify-center px-4 py-6 pointer-events-none sm:p-6">
-        <div class="w-full flex flex-col items-center space-y-4"></div>
-    </div>
-    <div class="max-w-7xl mx-auto mt-6 flex flex-col gap-8">
+    <div class="max-w-7xl mx-auto mt-6 flex flex-col px-2 md:px-2 lg:px-6 xl:p:8 gap-8">
         <div class="flex">
             <a class="w-auto" href="/jobs">
                 <button class="flex items-center gap-4 text-xs font-medium">
