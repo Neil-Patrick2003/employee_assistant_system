@@ -66,7 +66,7 @@
             <div class="w-1/2 h-full flex flex-col items-center justify-center bg-white animate-fade-up">
                 <div class="w-full max-w-md">
                     <div class="text-center mb-4">
-                        <img src="{{ asset('logo.png') }}" alt="Logo" class="w-64 h-auto mx-auto">
+                        <img src="{{ asset('career_path_logo2.jpg') }}" alt="Logo" class="w-20 h-auto mx-auto">
                     </div>
                 <div class="text-center mb-6">
                     <h4 class="mt-1 text-lg font-semibold">
