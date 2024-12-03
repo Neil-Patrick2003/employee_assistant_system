@@ -49,10 +49,11 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        Auth::login($user);
 
         $role = $user->role;
 
-        if ($role === 'admin') {
+        if ($role === 'Admin') {
             return redirect()->intended(route('admin.dashboard'));
         } elseif ($role === 'Employer') {
             return redirect()->intended(route('company_registration'));
@@ -61,5 +62,5 @@ class RegisteredUserController extends Controller
         }
 
         return redirect(route('dashboard', absolute: false));
-    }
+     }
 }
