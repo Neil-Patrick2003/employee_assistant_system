@@ -15,6 +15,13 @@
         .font-rubik {
             font-family: 'Rubik', sans-serif;
         }
+
+        /* Add these in your styles if needed */
+        .transition-opacity {
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        
     </style>
 
 </head>
@@ -23,7 +30,7 @@
     <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 
-        <main class="bg-white">
+        <main class="bg-indigo-500">
             {{ $slot }}
 
             @if (\Illuminate\Support\Facades\Auth::check())
