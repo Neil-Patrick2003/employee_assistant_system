@@ -33,12 +33,16 @@ class EmployerController extends Controller
 
 
 
-        return view('employer/index', [
+        return view('employer.index', [
             'all_jobs' => $allJobs,
             'active_jobs' => $totalActiveJobListings,
             'all_applicants' => $allApplicant,
             'company' => $company
         ]);
+    }
+
+    public function announcement(){
+        return view('employer.announcement.index');
     }
 
 }

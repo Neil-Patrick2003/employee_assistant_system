@@ -20,7 +20,8 @@ class JobListing extends Model
             'requierd_work_experience',
             'minimum_age',
             'maximum_age',
-            'category'
+            'category',
+            'status'
         ];
 
     public function company()

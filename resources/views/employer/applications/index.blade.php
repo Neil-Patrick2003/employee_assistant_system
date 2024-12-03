@@ -121,9 +121,10 @@
                                                 <div class="mt-1 text-gray-500">{{ $application->user->email }}</div>
                                             </div>
                                         </div>
+
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                        <a href="/resumes/${{ $application->resume_id }}">View Resume
+                                        <a href="/resumes/{{ $application->resume_id }}">View Resume
                                         </a>
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
