@@ -30,7 +30,7 @@
     <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 
-        <main class="bg-indigo-500">
+        <main class="bg-indigo-50">
             {{ $slot }}
 
             @if (\Illuminate\Support\Facades\Auth::check())

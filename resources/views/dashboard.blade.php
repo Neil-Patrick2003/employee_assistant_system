@@ -10,7 +10,8 @@
 
         <div class="flex flex-col gap-x-4 sm:flex-col md:flex-col lg:flex-row xl:flex-row text-gray-900">
             <div class="w-full lg:w-4/5  ">
-                <div class="w-full overflow-x-hidden mb-4 border rounded-lg shadow-sm bg-white p-2 md:p-4 lg:p-5 xl:p-8 mt-4 border">
+                <div
+                    class="w-full overflow-x-hidden mb-4 border rounded-lg shadow-sm bg-white p-2 md:p-4 lg:p-5 xl:p-8 mt-4 border">
                     <h1 class="text-xl font-semibold mb-4">Recommended Jobs</h1>
                     <div class="flex gap-4 overflow-x-auto">
                         @foreach ($matched_jobs as $matched_job)
@@ -190,53 +191,75 @@
 
             {{-- right side --}}
             <div class="w-full bg-white md:w-2/3 lg:w-1/5 xl:w-15 mt-4 p-2 lg:p-4 border rounded-xl">
-                <div class="border h-40">
+                <div class="border p-2">
                     <h2 class="text-sm font-medium text-gray-500">Announcement</h2>
                     <ul>
                         @if ($announcements->isEmpty())
-                            <p class="text-sm font-light text-gray-900">No announcements available at the moment.</p
-                            @else @foreach ($announcements as $announcement)
-                            <div class="mt-6 p-2 border rounded">
-                                <ul></ul>
-                                <div>
-                                    <h3 class="text-base font-semibold text-gray-900 mb-2">{{ $announcement->title }}
-                                    </h3>
-
-                                    <p class="text-sm font-light emibold text-gray-900">{{ $announcement->content }}
-                                    </p>
-                                </div>
+                            <div class="flex justify-center items-center">
+                                <img src="{{ asset('storage/images/icon/empty-announcement.png') }}" alt="Notification Icon"
+                                    class="max-w-full max-h-24 object-contain">
                             </div>
-                        @endforeach
+                            <p class="w-1/2 text-xs font-light text-gray-900 mx-auto text-center">
+                                No announcements available at the moment.
+                            </p>
+                        @else
+                            @foreach ($announcements as $announcement)
+                                <div class="mt-6 p-2 border rounded">
+                                    <div>
+                                        <h3 class="text-base font-semibold text-gray-900 mb-2">
+                                            {{ $announcement->title }}</h3>
+                                        <p class="text-sm font-light emibold text-gray-900">
+                                            {{ $announcement->content }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
                         @endif
-
-
                     </ul>
                 </div>
+
                 <div class="border mt-4 py-6 px-4">
                     <h2 class="text-sm font-medium text-gray-500">Notification</h2>
 
                     <ul>
-                        <div class="flex items-start">
-                            <div class="shrink-0">
-                                <svg class="size-6 text-gray-400" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
-                                </svg>
+                        @if ($announcements->isEmpty())
+                            <div class="flex justify-center items-center">
+                                <img src="{{ asset('storage/images/icon/empty-notif.jpg') }}" alt="Notification Icon"
+                                    class="max-w-full max-h-24 object-contain">
                             </div>
-                            <div class="ml-3 w-0 flex-1 pt-0.5">
-                                <p class="text-sm font-medium text-gray-900">Application Hired</p>
-                                <p class="mt-1 text-sm text-gray-500">Congratulations, you are hired welcom Onboard</p>
-                                <div class="mt-3 flex space-x-7">
-                                    <button type="button"
-                                        class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">View</button>
-                                    <button type="button"
-                                        class="rounded-md bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Remove</button>
-                                </div>
-                            </div>
+                            <p class="w-1/2 text-xs font-light text-gray-900 mx-auto text-center">
+                                No notification available at the moment.
+                            </p>
+                        @else
+                            @foreach ($announcements as $announcement)
+                                <div class="mt-6 p-2 border rounded">
+                                    <div class="flex items-start">
+                                        <div class="shrink-0">
+                                            <svg class="size-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                                data-slot="icon">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3 w-0 flex-1 pt-0.5">
+                                            <p class="text-sm font-medium text-gray-900">Application Hired</p>
+                                            <p class="mt-1 text-sm text-gray-500">Congratulations, you are hired welcom
+                                                Onboard</p>
+                                            <div class="mt-3 flex space-x-7">
+                                                <button type="button"
+                                                    class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">View</button>
+                                                <button type="button"
+                                                    class="rounded-md bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Remove</button>
+                                            </div>
+                                        </div>
 
-                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
                     </ul>
+
                 </div>
             </div>
 
