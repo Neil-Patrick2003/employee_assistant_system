@@ -37,6 +37,7 @@ class EmployerController extends Controller
             'all_jobs' => $allJobs,
             'active_jobs' => $totalActiveJobListings,
             'all_applicants' => $allApplicant,
+            'company' => $company
         ]);
     }
 

@@ -8,60 +8,82 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Scripts -->
+    <style>
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.75s ease-out forwards;
+        }
+
+        body, html {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        input:focus, textarea:focus {
+            animation: inputFocus 0.3s ease-out forwards;
+        }
+
+        @keyframes inputFocus {
+            0% {
+                border-color: #d1d5db;
+                transform: scale(1);
+            }
+            50% {
+                border-color: #6366f1;
+                transform: scale(1.02);
+            }
+            100% {
+                border-color: #6366f1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full bg-gray-50 dark:bg-white">
-    <div class="font-[sans-serif]">
-        <div class="min-h-screen flex flex-col items-center justify-center">
-            <div
-                class="grid md:grid-cols-2 items  gap-4 max-md:gap-8 max-w-6xl max-md:max-w-lg w-full p-4 m-4 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
-                <div class="md:max-w-md w-full px-4 py-4">
-                    <div class="text-center mb-6">
-                        <h4 class="mt-1 text-lg font-semibold">
-                            Login to your Account
-                        </h4>
-                        <p class="text-sm">Embark on an unparalleled job-seeking adventure with PESO</p>
+<body class="h-full bg-gray-50 light:bg-neutral-800 no-scroll">
+    <div class="font-[sans-serif] h-full">
+        <div class="h-screen w-full flex">
+            <div class="w-1/2 h-full flex flex-col items-center justify-center bg-white animate-fade-up">
+                <div class="w-full max-w-md">
+                    <div class="text-center mb-4">
+                        <img src="{{ asset('logo.png') }}" alt="Logo" class="w-64 h-auto mx-auto">
                     </div>
-                    {{ $slot }}
-                </div>
-
-                <div class="flex items-center justify-center md:h-full bg-neutral-900 rounded-xl lg:p-16 p-12">
-                    <img src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="h-screen w-full flex items-center justify-center">
-        <div class="w-full h-full flex">
-            <div
-                class="w-full md:w-full h-full flex flex-col items-center justify-center bg-white dark:bg-white px-4 py-6">
                 <div class="text-center mb-6">
                     <h4 class="mt-1 text-lg font-semibold">
                         Login to your Account
                     </h4>
-                    <p class="text-sm">Embark on an unparalleled job-seeking adventure with PESO</p>
-                </div>             
-                <div class="w-full max-w-md mx-auto">
+                    <p class="text-sm">Embark on an unparalleled job-seeking adventure with Career Pathway</p>
+                </div>
                     {{ $slot }}
                 </div>
             </div>
-
-            <!-- Right column -->
-            <div class="w-full md:w-6/12 h-full flex items-center justify-center bg-[#0F172A] rounded-b-lg md:rounded-e-lg md:rounded-bl-none py-6">
-                <img id="loginImage" src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
+            <div class="w-1/2 h-full flex items-center justify-center bg-neutral-900">
+                <img src="{{ asset('login.png') }}" alt="Image" class="max-w-[80%] h-auto">
             </div>
         </div>
-    </section>
+    </div>
 </body>
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-
 
 </html>
