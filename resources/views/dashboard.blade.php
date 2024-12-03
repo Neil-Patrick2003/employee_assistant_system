@@ -183,14 +183,10 @@
                     </div>
                 </div>
 
-
-
-
             </div>
 
-
             {{-- right side --}}
-            <div class="w-full bg-white md:w-2/3 lg:w-1/5 xl:w-15 mt-4 p-2 lg:p-4 border rounded-xl">
+            <div class="w-full bg-white md:w-full lg:w-1/5 xl:w-15 mt-4 p-2 lg:p-4 border rounded-xl">
                 <div class="border p-2">
                     <h2 class="text-sm font-medium text-gray-500">Announcement</h2>
                     <ul>
