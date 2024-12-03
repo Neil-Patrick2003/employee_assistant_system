@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 
-    <title>Document</title>
+    <title>CareerPath</title>
 </head>
 
 <body class="bg-indigo-50">
