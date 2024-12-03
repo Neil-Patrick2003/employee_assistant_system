@@ -35,8 +35,8 @@
 
            <div class="bg-gray-100 px-2.5 py-5 rounded-md space-y-5">
                <x-bar-chart
-                   :labels="$registeredJobSeekersCountPerDay['labels']"
-                   :data="$registeredJobSeekersCountPerDay['data']"
+                   :labels="$addedJobsCountPerDay['labels']"
+                   :data="$addedJobsCountPerDay['data']"
                    chart-label="New Jobs Per Day"
                    chart-title="Created Jobs Trends"
                    id="newJobsChart"
