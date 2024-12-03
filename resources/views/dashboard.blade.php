@@ -213,7 +213,7 @@
                     <h2 class="text-sm font-medium text-gray-500">Notification</h2>
 
                     <ul>
-                        @if ($announcements->isEmpty())
+                        @if ($notifications->isEmpty())
                             <div class="flex justify-center items-center">
                                 <img src="{{ asset('empty-notif.jpg') }}" alt="Notification Icon"
                                     class="max-w-full max-h-24 object-contain">
@@ -222,26 +222,49 @@
                                 No notification available at the moment.
                             </p>
                         @else
-                            @foreach ($announcements as $announcement)
+                            @foreach ($notifications as $notification)
                                 <div class="mt-6 p-2 border rounded">
                                     <div class="flex items-start">
-                                        <div class="shrink-0">
-                                            <svg class="size-6 text-gray-400" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                                data-slot="icon">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
-                                            </svg>
+                                            <div class="shrink-0">
+                                            @if ($notification->message == 'Your application has been marked as Hired')
+
+                                                <svg class="w-6 h-6 text-gray-600 " aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @elseif ($notification->message == 'Your application has been marked as Screening')
+                                                <svg class="w-6 h-6 text-gray-600 " aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 12.732A1.99 1.99 0 0 1 7 13H3v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2h-2a4 4 0 0 1-4-4v-2.268ZM7 11V7.054a2 2 0 0 0-1.059.644l-2.46 2.87A2 2 0 0 0 3.2 11H7Z"
+                                                        clip-rule="evenodd" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M14 3.054V7h-3.8c.074-.154.168-.3.282-.432l2.46-2.87A2 2 0 0 1 14 3.054ZM16 3v4a2 2 0 0 1-2 2h-4v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @else
+                                                <svg class="w-6 h-6 text-gray-600" aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="currentColor" viewBox="0 0 24 24">
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v5a1 1 0 1 0 2 0V8Zm-1 7a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H12Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            @endif
+
+
                                         </div>
                                         <div class="ml-3 w-0 flex-1 pt-0.5">
-                                            <p class="text-sm font-medium text-gray-900">Application Hired</p>
-                                            <p class="mt-1 text-sm text-gray-500">Congratulations, you are hired welcom
-                                                Onboard</p>
+                                            <p class="text-sm font-medium text-gray-900">Application no. {{$notification->application_id}}</p>
+                                            <p class="mt-1 text-sm text-gray-500">{{ $notification->message }}</p>
                                             <div class="mt-3 flex space-x-7">
-                                                <button type="button"
+                                                <a href="/applicant/applications"
                                                     class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">View</button>
-                                                <button type="button"
-                                                    class="rounded-md bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Remove</button>
+
                                             </div>
                                         </div>
 

@@ -21,13 +21,13 @@
             transition: opacity 0.2s ease-in-out;
         }
 
-        
+
     </style>
 
 </head>
 
 <body class="font-rubik bg-indigo-50">
-    <div class="min-h-screen bg-white">
+    <div class="min-h-screen bg-indigo-50">
         @include('layouts.navigation')
 
         <main class="bg-indigo-50">
