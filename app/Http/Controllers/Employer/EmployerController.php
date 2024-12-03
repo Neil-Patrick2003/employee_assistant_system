@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Employer;
 
-use Illuminate\Http\Request;
+use App\Models\Application;
+use App\Models\Company;
+use App\Models\JobListing;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class EmployerController extends Controller
 {
@@ -12,54 +16,29 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        return view(view: 'employer/index');
+
+        $company = Company::where('user_id', '=', Auth::id())->first();
+        $totalActiveJobListings = JobListing::where('company_id', '=', $company->id)
+            ->where('status', '=', 'Active')->count();
+        $allJobs = JobListing::where('company_id', '=', $company->id)->count();
+        $applications = Application::whereHas('job', function (Builder $builder) {
+            $builder->whereHas('company', function (Builder $query) {
+                $query->where('user_id', Auth::id());
+            });
+        })
+            ->with(['job.company', 'resume', 'user'])
+            ->get();
+
+        $allApplicant = $applications->count();
+
+
+
+        return view('employer/index', [
+            'all_jobs' => $allJobs,
+            'active_jobs' => $totalActiveJobListings,
+            'all_applicants' => $allApplicant,
+            'company' => $company
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
