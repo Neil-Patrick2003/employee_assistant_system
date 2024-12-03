@@ -265,11 +265,10 @@
                                     id="menu-button" aria-expanded="true" aria-haspopup="true"
                                     @click="dropdownOpen = !dropdownOpen">
                                     <span class="sr-only">Open user menu</span>
-                                    X
+
                                     <span class="hidden lg:flex lg:items-center">
                                         <span class="ml-4 text-sm/6 font-semibold text-gray-900"
-                                            aria-hidden="true">Tom
-                                            Cook</span>
+                                            aria-hidden="true">{{Auth::user()->name}}</span>
                                         <svg class="ml-2 size-5 text-gray-400" viewBox="0 0 20 20"
                                             fill="currentColor" aria-hidden="true" data-slot="icon">
                                             <path fill-rule="evenodd"

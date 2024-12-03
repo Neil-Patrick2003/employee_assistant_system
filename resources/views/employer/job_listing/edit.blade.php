@@ -234,7 +234,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="col-span-full">
+                        <div class="col-span-2">
                             <label for="scope" class="block text-sm/6 font-medium text-gray-900">Scope</label>
                             <div class="mt-2">
                                 <select id="scope" name="scope"
@@ -252,6 +252,24 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="col-span-2">
+                            <label for="status" class="block text-sm/6 font-medium text-gray-900">Status</label>
+                            <div class="mt-2">
+                                <select id="status" name="status"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                    >
+                                    <option value="{{ $job->status }}">{{ $job->status }}</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                            @error('status')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
 
                     </div>
                 </div>
@@ -372,7 +390,7 @@
                             @method('delete')
                             <div class="mt-2 input-group" id="input-container">
                                 <div class="input-item flex items-center">
-                                    <input type="hidden" name="id" value="{{$skills->id}}">
+                                    <input type="hidden" name="id" value="{{ $skills->id }}">
                                     <input type="text" value="{{ $skills->name }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
 

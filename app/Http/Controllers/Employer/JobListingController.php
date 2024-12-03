@@ -110,11 +110,14 @@ class JobListingController extends Controller
             'max_age' => 'required|integer|min:18|max:60|gte:min_age',
             'work_experience' => 'required|integer|min:0',
             'scope' => 'required',
+            'status' => 'required',
             'level' => 'required',
             'education_description' => 'required',
         ]);
 
+
         $job->update([
+            'status' => $request->status,
             'title' => $request->title,
             'description' => $request->description,
             'salary' => $request->salary,
@@ -142,7 +145,7 @@ class JobListingController extends Controller
         $job_education->description = $request->education_description;
         $job_education->save();
 
-        return redirect()->back();
+        return redirect('/employer/jobs');
     }
 
     public function delete()
@@ -158,5 +161,5 @@ class JobListingController extends Controller
         return redirect()->back();
     }
 
-    
+
 }
