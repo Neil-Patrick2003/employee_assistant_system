@@ -286,9 +286,7 @@
                                     id="menu-button" aria-expanded="true" aria-haspopup="true"
                                     @click="dropdownOpen = !dropdownOpen">
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="size-8 rounded-full bg-gray-50"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt="">
+                                    X
                                     <span class="hidden lg:flex lg:items-center">
                                         <span class="ml-4 text-sm/6 font-semibold text-gray-900"
                                             aria-hidden="true">Tom
@@ -335,8 +333,8 @@
             </div>
         </div>
 
-        <main class="py-10">
-            <div class="px-4 sm:px-6 lg:px-8">
+        <main class="py-10 bg-indigo-50">
+            <div class="px-4 sm:px-6 lg:px-8 bg-indigo-50 h-full">
                 {{ $slot }}
             </div>
         </main>

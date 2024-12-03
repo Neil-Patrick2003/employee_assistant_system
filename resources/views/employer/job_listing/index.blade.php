@@ -1,5 +1,7 @@
 <x-employer-layout>
 
+
+
     <div>
         <div class="mt-2 md:flex md:items-center md:justify-between">
             <div class="min-w-0 flex-1">
@@ -43,66 +45,79 @@
         </div>
     @endif
     <div class="mt-2 overflow-hidden rounded-lg">
-        @foreach ($company->jobs as $job)
-            <div class="">
-                <ul class="w-full flex flex-col gap-6 mt-4 rounded-lg">
-                    <li
-                        class="bg-white rounded-2xl flex p-6 transition-all duration-300 ease-in-out hover:border-2 hover:border-slate-600">
-                        <div class="w-full space-y-1 md:space-y-2">
-                            <div class="flex justify-between items-start">
-                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-                                    <p class="text-slate-600 text-xs ">{{ $job->company->name }}</p>
-                                    <div class="flex items-center gap-2">
-                                        <p class="text-slate-600 text-xs">
-                                            {{ $job->created_at }}
-                                        </p>
+        @if ($company->jobs->isEmpty())
+            <div class="flex justify-center mt-8 items-center">
+                <img src="{{ asset('storage/images/icon/empty-job.png') }}" alt="Notification Icon"
+                    class="max-w-96 max-h-96 object-contain">
+            </div>
+            <p class="w-1/2 text-2xl font-medium text-gray-900 mx-auto text-center">There is no Job post yet.</p>
+            <a href="/employer/jobs/create">
+                <p class="w-1/2 text-sm font-light text-gray-900 mx-auto text-center">
+                    Ready to hire? Post your job now!
+                </p>
+            </a>
+        @else
+            @foreach ($company->jobs as $job)
+                <div class="">
+                    <ul class="w-full flex flex-col gap-6 mt-4 rounded-lg">
+                        <li
+                            class="bg-white rounded-2xl flex p-6 transition-all duration-300 ease-in-out hover:border-2 hover:border-slate-600">
+                            <div class="w-full space-y-1 md:space-y-2">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                        <p class="text-slate-600 text-xs ">{{ $job->company->name }}</p>
+                                        <div class="flex items-center gap-2">
+                                            <p class="text-slate-600 text-xs">
+                                                {{ $job->created_at }}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <a href="/employer/jobs/edit/{{ $job->id }}" class="stroke-slate-600">
-                                        <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="0.5"
-                                                d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div
-                                class="flex flex-col gap-4 w-full sm:gap-8 sm:flex-row sm:justify-between sm:items-center">
-                                <div class="flex flex-col justify-center gap-4">
                                     <div class="flex gap-4">
-                                        <div
-                                            class="flex-initial border h-16 w-16 aspect-square flex items-center justify-center rounded-md">
-                                            <img class="w-auto object-fit rounded-md w-16"
-                                                src="{{ asset('storage/' . $job->company->logo_url) }}">
-                                        </div>
-                                        <h3 class="text-xl font-medium text-slate-600 md:text-2xl mt-2 flex-1">
-                                            {{ $job->title }}
-                                        </h3>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="text-xs text-gray-500 flex items-center space-x-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2" stroke="currentColor" aria-hidden="true"
-                                                class="w-5 h-5 text-gray-500">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                                </path>
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            </svg><span class="">{{ $job->location }}</span>
-                                        </div>
+                                        <a href="/employer/jobs/edit/{{ $job->id }}" class="stroke-slate-600">
+                                            <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="0.5"
+                                                    d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
                                 <div
-                                    class="flex flex-col justify-center items-center divide-y sm:flex-row sm:divide-x sm:divide-y-0 sm:items-center">
+                                    class="flex flex-col gap-4 w-full sm:gap-8 sm:flex-row sm:justify-between sm:items-center">
+                                    <div class="flex flex-col justify-center gap-4">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="flex-initial border h-16 w-16 aspect-square flex items-center justify-center rounded-md">
+                                                <img class="w-auto object-fit rounded-md w-16"
+                                                    src="{{ asset('storage/' . $job->company->logo_url) }}">
+                                            </div>
+                                            <h3 class="text-xl font-medium text-slate-600 md:text-2xl mt-2 flex-1">
+                                                {{ $job->title }}
+                                            </h3>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="text-xs text-gray-500 flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    aria-hidden="true" class="w-5 h-5 text-gray-500">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                                    </path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                </svg><span class="">{{ $job->location }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div
-                                        class="pb-4 w-full flex flex-col gap-4 justify-center sm:w-auto sm:pr-4 sm:pt-0">
-                                        <p class="text-xl text-slate-700 sm:text-right">P {{ $job->salary }}/month</p>
-                                        {{-- <div class="w-full flex justify-between gap-6 sm:justify-end">
+                                        class="flex flex-col justify-center items-center divide-y sm:flex-row sm:divide-x sm:divide-y-0 sm:items-center">
+                                        <div
+                                            class="pb-4 w-full flex flex-col gap-4 justify-center sm:w-auto sm:pr-4 sm:pt-0">
+                                            <p class="text-xl text-slate-700 sm:text-right">P {{ $job->salary }}/month
+                                            </p>
+                                            {{-- <div class="w-full flex justify-between gap-6 sm:justify-end">
                                             <a class="w-full" href="/employer/jobs/{{$job->id}}">
                                                 <button type="button"
                                                     class="px-5 py-3 font-medium text-neutral-100 bg-slate-900 flex justify-center items-center transition duration-300 ease-in-out rounded-full text-sm focus:outline-none disabled:opacity-75 disabled:cursor-not-allowed  border-slate-500 hover:bg-slate-600 whitespace-nowrap w-full hover:border-slate-500 focus:ring focus:ring-slate-900 active:scale-95">
@@ -110,13 +125,19 @@
                                                 </button>
                                             </a>
                                         </div> --}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        @endforeach
+                        </li>
+                    </ul>
+                </div>
+            @endforeach
+
+        @endif
+
+
+
+
     </div>
 </x-employer-layout>
