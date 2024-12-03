@@ -74,6 +74,7 @@ Route::post('/resumes', [ResumeController::class, 'store'])
 
 Route::get('/resumes/{resume}', [ResumeController::class, 'show']);
 
+
 Route::get('/company/registration', function(){
     return view('registration');
 })->name('company_registration');
@@ -137,6 +138,7 @@ Route::post('/employer/configuration/add-skill', [JobSkillController::class, 'st
 Route::get('/jobs', [JobController::class, 'index'])->name('explore');
 //report
 Route::get('/employer/reports', [EmployerReportController::class, 'index']);
+Route::get('/employer/announcements',[EmployerController::class, 'announcement'] );
 
 
 //admin
