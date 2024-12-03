@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Applicant;
 
+use App\Models\JobEducation;
 use App\Models\JobListing;
+use App\Models\JobSkill;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -41,7 +43,7 @@ class JobController extends Controller
         }
 
 
-        
+
 
         $jobs = $query->with(['company', 'my_application'])->get();
         $count = $jobs->count();
@@ -57,6 +59,9 @@ class JobController extends Controller
     public function show($id)
     {
         $job = JobListing::with(['company', 'my_application'])->findOrFail($id);
+        $job_skills = JobSkill::where('job_listing_id', '=', $job->id)->get();
+        $job_educations = JobEducation::where('job_listing_id', '=', $job->id)->first();
+
 
         $resumes = Resume::with('user')
             ->where('user_id', '=', Auth::id())
@@ -69,6 +74,8 @@ class JobController extends Controller
         return view('applicant.jobs.show', [
             'job' => $job,
             'resumes' => $resumes,
+            'job_skills' => $job_skills,
+            'job_educations' => $job_educations
         ]);
 
     }
