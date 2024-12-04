@@ -15,7 +15,7 @@
             @csrf
             <div class="space-y-12">
                 <div class="border-b border-gray-200 pb-12">
-                    <h2 class="text-lg font-semibold text-gray-900">Compony Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-900">Campony Information</h2>
                     <p class="mt-1 text-sm text-gray-600">Please complete the form to continue</p>
 
                     <div class="mt-10 col-span-full w-full">
