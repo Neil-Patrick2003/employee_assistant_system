@@ -31,7 +31,7 @@
             <x-input-label for="role" class="block text-sm/6 font-medium text-gray-900" :value="__('Role')" />
             <select id="role" name="role" class="mt-2 block w-full rounded-md border-0 p-2 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm/6">
                 <option value="Applicant">Applicant</option>
-                <option value="Employer">Employer</option>
+                <option value="Employer">Employee</option>
             </select>
           </div>
 
