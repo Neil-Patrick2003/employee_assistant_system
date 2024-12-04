@@ -90,7 +90,7 @@
                         </div>
 
                         {{-- new addition --}}
-                        <div class="col-span-full">
+                        {{-- <div class="col-span-full">
                             <label for="image" class="block text-sm/6 font-medium text-gray-900">Upload Image</label>
                             <div class="mt-2">
                                 <input type="file" name="image" id="image" accept="image/*"
@@ -101,7 +101,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         <div class="sm:col-span-3">
                             <label for="salary" class="block text-sm/6 font-medium text-gray-900">Salary
