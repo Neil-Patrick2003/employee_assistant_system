@@ -61,7 +61,7 @@
                 <div class="">
                     <ul class="w-full flex flex-col gap-6 mt-4 rounded-lg">
                         <li
-                            class="bg-white rounded-2xl flex p-6 transition-all duration-300 ease-in-out hover:border-2 hover:border-slate-600">
+                            class="bg-white border shadow-sm rounded-2xl flex p-6 transition-all duration-300 ease-in-out hover:border-2 hover:border-slate-600">
                             <div class="w-full space-y-1 md:space-y-2">
                                 <div class="flex justify-between items-start">
                                     <div class="flex flex-col gap-2 sm:flex-row sm:items-center">

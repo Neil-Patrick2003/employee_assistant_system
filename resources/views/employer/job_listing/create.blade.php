@@ -50,11 +50,10 @@
             @csrf
             <div class="space-y-12 ">
                 <div class=" grid grid-cols-1 gap-x-8 gap-y-10  my-4 md:grid-cols-3">
-                    <div class="bg-slate-900 h-full p-4">
-                        <h2 class="text-base/7 font-semibold text-gray-100">Job Details</h2>
-                        <p class="mt-1 text-sm/6 text-gray-100">This information will be displayed publicly so be
-                            careful
-                            what you share.</p>
+                    <div class=" h-full p-4">
+                        <h2 class="text-base/7 font-semibold text-gray-800">Job Details</h2>
+                        <p class="mt-1 text-sm/6 text-gray-800">This information will be displayed publicly so be
+                            careful what you share.</p>
                     </div>
 
                     <div class="grid max-w-2xl grid-cols-1 p-4 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
@@ -64,7 +63,7 @@
                                 <div
                                     class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                                     <input type="text" name="title" id="title"
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
+                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
                                 </div>
                                 @error('title')
                                     <div class="text-danger">
@@ -79,9 +78,10 @@
                                 class="block text-sm/6 font-medium text-gray-900">Description</label>
                             <div class="mt-2">
                                 <textarea id="description" name="description" rows="3"
-                                    class="block w-full rounded-md border-0 pl-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                                    class="block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                                    placeholder="Provide a brief description of the job.">
+                                </textarea>
                             </div>
-                            <p class="mt-3 text-sm/6 text-gray-600">Write a few description about Jobs.</p>
                             @error('description')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -89,13 +89,28 @@
                             @enderror
                         </div>
 
-                        <div class="sm:col-span-3">
-                            <label for="salary" class="block text-sm/6 font-medium text-gray-900">Salary</label>
+                        {{-- new addition --}}
+                        <div class="col-span-full">
+                            <label for="image" class="block text-sm/6 font-medium text-gray-900">Upload Image</label>
                             <div class="mt-2">
-                                <div
-                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <input type="file" name="image" id="image" accept="image/*"
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                            </div>
+                            @error('image')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="sm:col-span-3">
+                            <label for="salary" class="block text-sm/6 font-medium text-gray-900">Salary
+                                <span class="text-xs text-gray-400">/ month</span>
+                            </label>
+                            <div class="mt-2">
+                                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                     <input type="number" name="salary" id="salary" placeholder="00.00"
-                                        class="block pl-2 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6">
+                                        class="block pl-2 pr-3 flex-1 border-0 bg-transparent py-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm">
                                 </div>
                                 @error('salary')
                                     <div class="text-danger">
@@ -103,16 +118,14 @@
                                     </div>
                                 @enderror
                             </div>
-                        </div>
+                        </div>                        
 
                         <div class="sm:col-span-3">
                             <label for="location" class="block text-sm/6 font-medium text-gray-900">Location</label>
                             <div class="mt-2">
-                                <div
-                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-
+                                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                     <select id="location" name="location"
-                                            class="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                        class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm">
                                         <option value="">Please select location</option>
                                         @foreach(\App\Models\JobListing::getLocationOptions() as $location)
                                             <option value="{{$location}}">{{$location}}</option>
@@ -124,15 +137,14 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
+                            </div>                            
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="work_policy" class="block text-sm/6 font-medium text-gray-900">Work
-                                Policy</label>
+                            <label for="work_policy" class="block text-sm/6 font-medium text-gray-900">Work Policy</label>
                             <div class="mt-2">
                                 <select id="work_policy" name="work_policy"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm">
                                     <option value="Onsite">Onsite</option>
                                     <option value="Remote">Remote</option>
                                     <option value="Hybrid">Hybrid</option>
@@ -143,13 +155,13 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div>                        
+
                         <div class="sm:col-span-3">
-                            <label for="category" class="block text-sm/6 font-medium text-gray-900">
-                                category</label>
+                            <label for="category" class="block text-sm/6 font-medium text-gray-900">Category</label>
                             <div class="mt-2">
                                 <select id="category" name="category"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm">
                                     <option value="">Please select</option>
                                     @foreach(\App\Models\JobListing::getCategoriesOptions() as $category)
                                         <option value="{{$category}}">{{$category}}</option>
@@ -166,20 +178,17 @@
                 </div>
 
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10  pb-12 md:grid-cols-3">
-                    <div class="bg-slate-900 h-full p-4">
-                        <h2 class="text-base/7 font-semibold text-gray-900">Background Requirements</h2>
-                        <p class="mt-1 text-sm/6 text-gray-600">Use a permanent address where you can receive mail.</p>
+                    <div class=" h-full p-4">
+                        <h2 class="text-base/7 font-semibold text-gray-800">Job Requirements</h2>
+                        <p class="mt-1 text-sm/6 text-gray-800">The skills, experience, and qualifications needed to succeed in a role.</p>
                     </div>
 
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="sm:col-span-2">
-                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Minimum
-                                Age</label>
+                            <label for="min_age" class="block text-sm/6 font-medium text-gray-900">Minimum Age</label>
                             <div class="mt-2">
-                                <input type="number" name="min_age" id="min-age"
-                                       min="18"
-                                       max="60"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                                <input type="number" name="min_age" id="min-age" min="18" max="60"
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
                             </div>
                             @error('min_age')
                                 <div class="text-danger">
@@ -187,15 +196,12 @@
                                 </div>
                             @enderror
                         </div>
-
+                    
                         <div class="sm:col-span-2">
-                            <label for="max_age" class="block text-sm/6 font-medium text-gray-900">Maximum
-                                Age</label>
+                            <label for="max_age" class="block text-sm/6 font-medium text-gray-900">Maximum Age</label>
                             <div class="mt-2">
-                                <input type="number" name="max_age" id="max_age" autocomplete="family-name"
-                                       min="18"
-                                       max="60"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                                <input type="number" name="max_age" id="max_age" autocomplete="family-name" min="18" max="60"
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
                             </div>
                             @error('max_age')
                                 <div class="text-danger">
@@ -203,14 +209,12 @@
                                 </div>
                             @enderror
                         </div>
-
+                    
                         <div class="sm:col-span-2">
-                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">
-                                Work Experience (in years)</label>
+                            <label for="work_experience" class="block text-sm/6 font-medium text-gray-900">Work Experience (in years)</label>
                             <div class="mt-2">
-                                <input type="number" name="work_experience" id="wprk_experience"
-                                    autocomplete="family-name"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                                <input type="number" name="work_experience" id="work_experience" autocomplete="family-name"
+                                    class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
                             </div>
                             @error('work_experience')
                                 <div class="text-danger">
@@ -218,12 +222,12 @@
                                 </div>
                             @enderror
                         </div>
+
                         <div class="col-span-full">
                             <label for="scope" class="block text-sm/6 font-medium text-gray-900">Scope</label>
                             <div class="mt-2">
                                 <select id="scope" name="scope"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
-                                >
+                                    class="block w-full rounded-md border-0 py-2 px-3 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm">
                                     <option value="Full Time">Full Time</option>
                                     <option value="Part Time">Part Time</option>
                                     <option value="Project Based">Project Based</option>
@@ -235,94 +239,83 @@
                                 </div>
                             @enderror
                         </div>
+                    </div>
+                    
 
                     </div>
                 </div>
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
                     <div>
-                        <h2 class="text-base/7 font-semibold text-gray-900">Skill Requirements</h2>
+                        <h2 class="pl-2 text-base/7 font-semibold text-gray-900">Skill Requirements</h2>
                     </div>
 
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="sm:col-span-3 relative">
                             <label for="min_age" class="flex items-center text-sm font-medium text-gray-900">
                                 Add Skills
-                                <button type="button" id="add-btn"
-                                    class="ml-auto text-indigo-600 hover:text-indigo-800">
-                                    <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
-                                            clip-rule="evenodd" />
+                                <button type="button" id="add-btn" class="ml-auto text-indigo-600 hover:text-indigo-800">
+                                    <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             </label>
-
-
-
-
-
+                    
                             <div class="mt-2 input-group" id="input-container">
                                 <div class="input-item flex items-center">
-                                    <input type="text" name="job_skills[]"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                                    <input type="text" name="job_skills[]" class="block w-full rounded-md border-0 py-2 pl-2 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
                                     <button type="button" class="remove-btn text-red-600 hover:text-red-800 ml-2">
-                                        <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd"
-                                                d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z"
-                                                clip-rule="evenodd" />
+                                        <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z" clip-rule="evenodd" />
                                         </svg>
-
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pt-3 pb-12 md:grid-cols-3">
                     <div>
-                        <h2 class="text-base/7 font-semibold text-gray-900">Educations Requirements</h2>
+                        <h2 class="pl-2 text-base/7 font-semibold text-gray-900">Educations Requirements</h2>
                     </div>
 
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
                         <div class="sm:col-span-4">
                             <label for="level" class="block text-sm/6 font-medium text-gray-900">Education
                                 Level</label>
-                            <div class="mt-2">
-                                <select id="level" name="level"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6">
-                                    <option value="">Select Education Level</option>
-                                    <option value="Elementary">Elementary</option>
-                                    <option value="High-School">High-School</option>
-                                    <option value="Vocational">Vocational</option>
-                                    <option value="College">College</option>
-                                    <option value="Masteral">Masteral</option>
-                                    <option value="Doctoral">Doctoral</option>
-                                </select>
-                            </div>
+                                <div class="mt-2">
+                                    <select id="level" name="level"
+                                        class="block w-full rounded-md border-0 py-1.5 pl-2 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm">
+                                        <option value="" class="text-gray-400">Select Education Level</option>
+                                        <option value="Elementary">Elementary</option>
+                                        <option value="High-School">High-School</option>
+                                        <option value="Vocational">Vocational</option>
+                                        <option value="College">College</option>
+                                        <option value="Masteral">Masteral</option>
+                                        <option value="Doctoral">Doctoral</option>
+                                    </select>
+                                </div>
                             @error('level')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
+                        
                         <div class="col-span-full">
-                            <label for="education_description"
-                                class="block text-sm/6 font-medium text-gray-900">Education Description</label>
+                            <label for="education_description" class="block text-sm font-medium text-gray-900">Education Description</label>
                             <div class="mt-2">
                                 <textarea id="education_description" name="education_description" rows="3"
-                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                                    placeholder="Write here a short description."></textarea>
                             </div>
-                            <p class="mt-3 text-sm/6 text-gray-600">Write a here a short descriptions.</p>
                             @error('education_description')
                                 <div class="text-red-500">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
+                        
 
                     </div>
                 </div>
@@ -344,7 +337,7 @@
             const newInputGroup = document.createElement('div');
             newInputGroup.classList.add('input-item', 'flex', 'items-center', 'mt-2');
             newInputGroup.innerHTML = `
-                <input type="text" name="job_skills[]" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                <input type="text" name="job_skills[]" class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
                 <button type="button" class="remove-btn text-red-600 hover:text-red-800 ml-2">
                     <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z" clip-rule="evenodd"/>
@@ -366,6 +359,5 @@
             });
         });
     </script>
-
 
 </x-employer-layout>
